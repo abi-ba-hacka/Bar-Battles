@@ -40,7 +40,10 @@ ion-header.header-md {
         background-image: initial;
         bottom: 0;
     }
-    ion-segment ion-segment-button {
+    button {
+        color: $color-light;
+    }
+    ion-segment ion-segment-button.segment-button {
         color: $color-light;
     }
 }
@@ -58,5 +61,7 @@ ion-toolbar {
 }
 
 ion-content {
-
+    .scroll-content {
+        overflow-y: auto;
+    }
 }
