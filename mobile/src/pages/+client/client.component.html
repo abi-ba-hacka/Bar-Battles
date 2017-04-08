@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Client view</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Client view</h2>
+
+  <ion-list>
+    <ion-item>
+      <button ion-button (click)="scan()">
+        Scan
+      </button>
+    </ion-item>
+    <ion-item>
+      <div *ngIf="data">
+        {{data.text}}
+        {{data.format}}
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Text</ion-label>
+      <ion-input [(ngModel)]="text" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <button ion-button (click)="this.encryptedText = encrypt(text)">
+        Encrypt
+      </button>
+      <button ion-button (click)="this.decryptedText = decrypt(this.encryptedText)">
+        Decrypt
+      </button>
+      (or just scan a QR encrypted)
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Encrypted Text</ion-label>
+      <ion-input [(ngModel)]="encryptedText" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Decrypted Text</ion-label>
+      <ion-input [(ngModel)]="decryptedText" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+<button ion-button (click)="doFbLogout()">Logout</button>
+
+<ion-label stacked>User info</ion-label>
+<div *ngIf="user">
+  {{user.name}}
+  <img src="{{user.picture}}">
+</div>
+</ion-content>
