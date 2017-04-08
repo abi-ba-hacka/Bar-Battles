@@ -1,6 +1,9 @@
 <ion-header>
-  <ion-toolbar primary>
-    <ion-segment dark [(ngModel)]="tab">
+  <ion-toolbar>
+    <button ion-button clear (click)="scan()">
+        <img class="icon" src="assets/icon/qrcode-scan.png">
+    </button>
+    <ion-segment [(ngModel)]="tab">
       <ion-segment-button value="profile">
         Perfil
       </ion-segment-button>

@@ -27,7 +27,7 @@ export class ClientPageComponent {
   user: any;
   userReady: boolean = false;
 
-  public bar: string = 'bar';
+  public tab: string = 'bar';
 
   constructor(
     public navCtrl: NavController,

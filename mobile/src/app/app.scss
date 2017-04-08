@@ -34,10 +34,17 @@
     img  { max-width: 80%; }
 }
 
-ion-content {
-
+ion-toolbar {
+    .toolbar-content {
+        display: flex;
+        align-items: center;
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
 }
 
-ion-footer {
-    background: $color-dark;
+ion-content {
+
 }

@@ -1,47 +1,44 @@
-<ion-content padding>
+<ion-content>
 
   <ion-slides pager>
 
-    <ion-slide>
-      <img src="assets/img/onboarding/step1.png">
-      <h2>Sustentabilidad</h2>
-      <p>
-        En nuestra microcerveceria la prioridad es el
-        medioambiente. Conocé cuán fuerte es
-        nuestro compromiso.
-      </p>
-    </ion-slide>
+      <ion-slide>
+          <img src="assets/img/onboarding/step1.png">
+          <h2>Sustentabilidad</h2>
+          <p>
+              En nuestra microcerveceria la prioridad es el
+              medioambiente. Conocé cuán fuerte es
+              nuestro compromiso.
+          </p>
+      </ion-slide>
 
-    <ion-slide>
-      <img src="assets/img/onboarding/step2.png">
-      <h2>Sustentabilidad</h2>
-      <p>
-        En nuestra microcerveceria la prioridad es el
-        medioambiente. Conocé cuán fuerte es
-        nuestro compromiso.
-      </p>
-    </ion-slide>
+      <ion-slide>
+          <img src="assets/img/onboarding/step2.png">
+          <h2>Sustentabilidad</h2>
+          <p>
+              En nuestra microcerveceria la prioridad es el
+              medioambiente. Conocé cuán fuerte es
+              nuestro compromiso.
+          </p>
+      </ion-slide>
 
-    <ion-slide>
-      <img src="assets/img/onboarding/step3.png">
-      <h2>Sustentabilidad</h2>
-      <p>
-        En nuestra microcerveceria la prioridad es el
-        medioambiente. Conocé cuán fuerte es
-        nuestro compromiso.
-      </p>
-    </ion-slide>
+      <ion-slide>
+          <img src="assets/img/onboarding/step3.png">
+          <h2>Sustentabilidad</h2>
+          <p>
+              En nuestra microcerveceria la prioridad es el
+              medioambiente. Conocé cuán fuerte es
+              nuestro compromiso.
+          </p>
+      </ion-slide>
 
   </ion-slides>
-
-  <button ion-button (click)="goToAdminPage()">Admin view</button>
-  <button ion-button (click)="goToClientPage()">Client view</button>
-
+ 
 </ion-content>
 
-<ion-footer padding>
-  <button ion-button (click)="doFbLogin()">INICIAR SESION</button>
-  <button ion-button (click)="doGhostLogin()" color="light" clear>
-      CONTINUAR SIN INICIAR SESION
-  </button>
+<ion-footer>
+    <button ion-button (click)="doFbLogin()">INICIAR SESION</button>
+    <button ion-button (click)="goToClientPage(); doGhostLogin()" color="light" clear>
+        CONTINUAR SIN INICIAR SESION
+    </button>
 </ion-footer>
