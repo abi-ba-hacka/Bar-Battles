@@ -65,4 +65,8 @@ export class AuthPageComponent {
       console.log(error);
     });
   }
+
+  doGhostLogin() {
+      console.log("GHOST LOGIN");
+  }
 }

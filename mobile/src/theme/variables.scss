@@ -15,6 +15,7 @@ $font-path: "../assets/fonts";
 $color-primary: #B87333;
 $color-light: #FAFAFA;
 $color-dark: #222222;
+$color-grey: #3A3A3A;
 
 $background-color: $color-dark;
 $background-color: $color-dark;
@@ -42,7 +43,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      $color-light,
-  dark:       $color-dark
+  dark:       $color-dark,
+  grey:       $color-grey
 );
 
 
