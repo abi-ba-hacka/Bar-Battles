@@ -2,14 +2,17 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { NativeStorage } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { AuthPageComponent } from '../pages/+auth/auth.component';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  @ViewChild('sidemenu') nav;
+  rootPage:any = AuthPageComponent;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -18,5 +21,14 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  goToPage() {
+    this.nav.push(AuthPageComponent);
+  }
+
+  goToPage2(pages) {
+    this.nav.push(pages.component);
+    this.menuCtrl.close();
   }
 }
