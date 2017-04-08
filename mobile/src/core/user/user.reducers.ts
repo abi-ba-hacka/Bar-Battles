@@ -28,6 +28,51 @@ export function user(state = inizialUserState, action: UserActions.Actions): Use
         error: action.payload
       });
 
+    case UserActions.Types.USER_LOGIN:
+      return Object.assign({}, state, {loading: true, error: null});
+
+    case UserActions.Types.USER_LOGIN_SUCCESS:
+      return Object.assign({}, state, {
+        user: action.payload,
+        loading: false
+      });
+
+    case UserActions.Types.USER_LOGIN_FAIL:
+      return Object.assign({}, state, {
+        error: action.payload,
+        loading: false
+      });
+
+    case UserActions.Types.EDIT_USER:
+      return Object.assign({}, state, {loading: true, error: null});
+
+    case UserActions.Types.EDIT_USER_SUCCESS:
+      return Object.assign({}, state, {
+        user: action.payload,
+        loading: false
+      });
+
+    case UserActions.Types.EDIT_USER_FAIL:
+      return Object.assign({}, state, {
+        error: action.payload,
+        loading: false
+      });
+
+    case UserActions.Types.SEND_QR:
+      return Object.assign({}, state, {loading: true, error: null});
+
+    case UserActions.Types.SEND_QR_SUCCESS:
+      return Object.assign({}, state, {
+        user: action.payload.user,
+        loading: false
+      });
+
+    case UserActions.Types.SEND_QR_FAIL:
+      return Object.assign({}, state, {loading: false, error: action.payload});
+
+
+
+
     default:
         return state;
   }

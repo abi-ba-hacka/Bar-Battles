@@ -7,7 +7,7 @@ export class Bar {
   users: User[];
   points: number;
   name: string;
-  id: number;
+  id: string;
   image: string;
   battle: Battle;
   prizes: Prize[];

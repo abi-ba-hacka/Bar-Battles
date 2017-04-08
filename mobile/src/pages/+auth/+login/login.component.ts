@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Facebook, NativeStorage } from 'ionic-native';
 import { NavController, MenuController } from 'ionic-angular';
 import { ClientPageComponent } from '../../+client/client.component';
+import { Store } from '@ngrx/store';
+import { UserActions } from '../../../core/user/user.actions';
+import { UserService } from '../../../core/user/user.service';
 
 @Component({
   selector: 'login-page',
@@ -15,8 +18,37 @@ export class LoginPageComponent {
   constructor(
     private navCtrl: NavController,
     private menuCtrl: MenuController,
+    private store: Store<any>,
+    private userService: UserService,
   ) {
     Facebook.browserInit(this.FB_APP_ID, "v2.8");
+  }
+
+  doFakeFbLogin() {
+    this.store.dispatch(new UserActions.UserLogin('123'));
+  }
+
+  editUserFake() {
+    let edit = {
+      name: 'piononono'
+    }
+    let id;
+    this.store.map(store => store.userState.user.id).take(1).subscribe(userId => {
+      id = userId;
+    })
+    this.store.dispatch(new UserActions.EditUser({id: id, data: edit}))
+  }
+
+  fakeScan() {
+    this.userService.encrypt({barId: '1', beerId: '1'}).subscribe(res => {
+      console.log('res');
+      console.log(res);
+      let id;
+      this.store.take(1).subscribe(store => {
+        id = store.userState.user.id;
+      })
+      this.store.dispatch(new UserActions.SendQR({id: id, qrcode: res.data}))
+    })
   }
 
   doFbLogin(){
@@ -27,6 +59,7 @@ export class LoginPageComponent {
 
     Facebook.login(permissions)
     .then((response) => {
+      let accessToken = response.authResponse.accessToken;
       let userId = response.authResponse.userID;
       let params = new Array();
 
@@ -35,6 +68,9 @@ export class LoginPageComponent {
       .then((user) => {
         user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
         //now we have the users info, let's save it in the NativeStorage
+        this.store.dispatch(new UserActions.UserLogin(userId));
+
+        //borrar y editar ClientPage
         NativeStorage.setItem('user',
         {
           name: user.name,
