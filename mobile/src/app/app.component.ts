@@ -29,6 +29,7 @@ export class MyApp {
               splashScreen: SplashScreen,
               public menuCtrl: MenuController,
               private store: Store<any>) {
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -44,6 +45,16 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.adminPages = [
+      {name: 'Bar Estadisticas', component: BarStatsPageComponent},
+      {name: 'Battle Tab', component: BattleTabPageComponent},
+      {name: 'Descuentos', component: DiscountsPageComponent},
+      {name: 'Objetivos', component: GoalsPageComponent},
+      {name: 'Premios', component: BattleTabPageComponent},
+      {name: 'Canjear Codigo', component: BattleTabPageComponent},
+      {name: 'Generar Codigo', component: QRGeneratorPageComponent},
+    ]
   }
 
   goToPage() {
