@@ -1,31 +1,99 @@
+exports.hash = 'randomString';
 let db = {
+  // USERS
   users: [{
     id: '1',
-    name: 'il pioni'
+    name: 'il pioni',
+    points: 0,
+    prizes: ['1'],
+    beers: [],
+    facebook: {
+      id: '',
+      name: '',
+      token: ''
+    }
   }, {
     id: '2',
-    name: 'il rami'
+    name: 'il rami',
+    points: 0,
+    prizes: [],
+    beers: [],
+    facebook: {
+      id: '',
+      name: '',
+      token: ''
+    }
   }, {
     id: '3',
-    name: 'il panchi'
+    name: 'il panchi',
+    points: 0,
+    prizes: [],
+    beers: [],
+    facebook: {
+      id: '',
+      name: '',
+      token: ''
+    }
   }, {
     id: '4',
-    name: 'il lucho'
+    name: 'il lucho',
+    points: 0,
+    prizes: [],
+    beers: [],
+    facebook: {
+      id: '',
+      name: '',
+      token: ''
+    }
   }],
+
+  // BARS
   bars: [{
     id: '1',
-    name: 'patagonia bsas'
+    name: 'patagonia bsas',
+    points: 0,
+    image: '',
+    battle: '1',
+    prizes: [],
+    users: ['1'],
+    promotions: []
   }, {
     id: '2',
-    name: 'patagonia bariloche'
+    name: 'patagonia bariloche',
+    points: 4,
+    image: '',
+    battle: '1',
+    prizes: [],
+    users: ['4'],
+    promotions: []
   }],
+
+  // BEERS
   beers: [{
     id: '1',
-    name: 'IPA'
+    name: 'IPA',
+    description: 'new beer'
   }, {
     id: '2',
-    name: 'weise'
+    name: 'weise',
+    description: 'best beer'
   }],
+
+  // BATTLES
+  battles: [{
+    bars: ['1','2'],
+    start: 1491955200000,
+    end: 1492041600000,
+    points: 0,
+    log: [], //BattleAction
+  }],
+
+  // PRIZES
+  prizes: [{
+    id: '1',
+    name: 'Beer!',
+    redeemed: false
+  }]
 
 
 };
@@ -65,14 +133,10 @@ exports.update = function(req, res) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
-  let found;
-  db[req.params.model] = db[req.params.model].map(model => {
-    if (model.id === req.params.id) {
-       found = Object.assign({}, model, req.body);
-       return found;
-    }
-    return model;
-  })
+  let found = exports.updateItemInModel(
+    req.params.model,
+    Object.assign({}, req.body, {id: req.params.id})
+  )
   found? res.json(found) : res.json({status: 404, error: 'NOT_FOUND'});
   return;
 }
@@ -93,5 +157,34 @@ exports.remove = function(req, res) {
     return model;
   })
   found? res.json(found) : res.json({status: 404, error: 'NOT_FOUND'});
+  return;
+}
+
+exports.updateItemInModel = function(model, item) {
+  let found;
+  db[model] = db[model].map(model => {
+    if (model.id === item.id) {
+       found = Object.assign({}, model, item);
+       return found;
+    }
+    return model;
+  })
+  return found;
+}
+
+// USER
+exports.getUserByFacebookId = function(req, res) {
+  console.log(req.params);
+  console.log(req.body);
+  if (!req.params.id) {
+    res.json({error: 'BAD_PARAMS'})
+    return;
+  }
+  let model = db.users.find(model => model.facebook.id === req.params.id)
+  if (!model) {
+    res.json({error: 'BAD_ID'})
+    return;
+  }
+  res.json(model);
   return;
 }

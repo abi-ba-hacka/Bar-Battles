@@ -2,7 +2,7 @@ import { User } from './user.model';
 import { UserActions} from './user.actions';
 
 export interface UserState {
-  user: number,
+  user: User,
   loading: boolean
 }
 
