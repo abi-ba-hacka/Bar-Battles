@@ -34,6 +34,17 @@
     img  { max-width: 80%; }
 }
 
+ion-toolbar {
+    .toolbar-content {
+        display: flex;
+        align-items: center;
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
 ion-content {
 
 }
