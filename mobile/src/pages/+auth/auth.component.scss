@@ -1,25 +1,41 @@
 auth-root {
+    $padding: 5% 10%;
     flex-direction: column;
     display: flex !important;
 
     ion-slides {
+        height: auto;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
         ion-slide {
             color: $color-light;
+            h2 {
+                margin-top: -30px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            p {
+                font-size: 12px;
+                font-weight: 300;
+            }
         }
     }
 
     ion-content {
+        padding: $padding;
         display: flex;
         flex: 1;
         position: relative !important;
         .scroll-content {
-
+            padding: $padding;
         }
     }
     ion-footer {
         display: flex;
         flex-direction: column;
         position: relative;
+        padding: $padding;
         button {
             width: 100%;
         }

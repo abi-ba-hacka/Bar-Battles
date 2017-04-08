@@ -98,5 +98,9 @@ export class ClientPageComponent {
     });
   }
 
+  test() {
+      this.navCtrl.push(LoginPageComponent);
+  }
+
 
 }
