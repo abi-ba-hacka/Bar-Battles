@@ -58,6 +58,19 @@ export function user(state = inizialUserState, action: UserActions.Actions): Use
         loading: false
       });
 
+    case UserActions.Types.SEND_QR:
+      return Object.assign({}, state, {loading: true, error: null});
+
+    case UserActions.Types.SEND_QR_SUCCESS:
+      return Object.assign({}, state, {
+        user: action.payload.user,
+        loading: false
+      });
+
+    case UserActions.Types.SEND_QR_FAIL:
+      return Object.assign({}, state, {loading: false, error: action.payload});
+
+
 
 
     default:

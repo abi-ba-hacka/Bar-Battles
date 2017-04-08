@@ -7,6 +7,7 @@ export class User {
   points: number;
   prizes: Prize[];
   beers: Beer[];
+  activeBar: string;
   facebook: {
     id: number,
     name: string,
@@ -20,5 +21,6 @@ export class User {
     this.prizes = data.prizes;
     this.beers = data.beers;
     this.facebook = data.facebook;
+    this.activeBar = data.activeBar;
   }
 }

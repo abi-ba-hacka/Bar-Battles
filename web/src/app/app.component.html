@@ -1,0 +1,8 @@
+<h1>My id - {{mypeerid}}</h1>
+<p>Code to Connect: <input type="text" [(ngModel)]="anotherid"></p>
+<input #message  placeholder="message">
+<button (click)="connect(message.value); message.value = ''">Send</button>
+<br>
+<button (click)="videoconnect()">Start VideoChat</button>
+<br>
+<video #myvideo></video>

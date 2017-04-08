@@ -28,4 +28,14 @@ export class UserService {
     return this.http.post(API.users + id, data, this.options)
       .map(res => res.json());
   }
+
+  redeemQR(id: string, code: string) {
+    return this.http.post(API.redeem, {userId: id, qrcode: code}, this.options)
+      .map(res => res.json());
+  }
+
+  encrypt(data: any) {
+    return this.http.post('https://6aed40e1.ngrok.io/encrypt/', {data}, this.options)
+      .map(res => res.json());
+  }
 }

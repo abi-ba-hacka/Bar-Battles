@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { type } from '../../type';
 import { User } from './user.model';
+// import { UserState } from './user.reducers';
 
 export namespace UserActions {
 
@@ -14,6 +15,9 @@ export namespace UserActions {
     EDIT_USER: type('[User] Edit User'),
     EDIT_USER_SUCCESS: type('[User] Edit User Success'),
     EDIT_USER_FAIL: type('[User] Edit User Fail'),
+    SEND_QR: type('[User] Send QR'),
+    SEND_QR_SUCCESS: type('[User] Send QR Success'),
+    SEND_QR_FAIL: type('[User] Send QR Fail'),
 
 
   }
@@ -72,6 +76,26 @@ export namespace UserActions {
     constructor(public payload: any) { }
   }
 
+  export class SendQR implements Action {
+    type = Types.SEND_QR;
+
+    constructor(public payload: any) { }
+  }
+
+  export class SendQRSuccess implements Action {
+    type = Types.SEND_QR_SUCCESS;
+
+    constructor(public payload: any) { }
+  }
+
+  export class SendQRFail implements Action {
+    type = Types.SEND_QR_FAIL;
+
+    constructor(public payload: any) { } // recibe un userState
+  }
+
+
+
 
 
   export type Actions
@@ -84,5 +108,8 @@ export namespace UserActions {
     | EditUser
     | EditUserSuccess
     | EditUserFail
+    | SendQR
+    | SendQRSuccess
+    | SendQRFail
 
 }
