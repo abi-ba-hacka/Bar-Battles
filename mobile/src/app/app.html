@@ -1,8 +1,8 @@
 <div class="splashscreen" *ngIf="splashScreen" (click)="closeSplash()">
-    <img src="assets/img/logo_splash.png" alt="">
+    <img src="assets/img/logo_splash.png">
 </div>
 
-<ion-menu type="overlay" id="admin-menu" [content]="sidemenu"
+<!--ion-menu type="overlay" id="admin-menu" [content]="sidemenu"
 [class.hidden]="splashScreen">
     <ion-content>
         <ion-list>
@@ -20,6 +20,6 @@
             <p (click)="goToPage()">Client menu</p>
         </ion-list>
     </ion-content>
-</ion-menu>
+</ion-menu-->
 
 <ion-nav #sidemenu [root]="rootPage" [class.hidden]="splashScreen"></ion-nav>
