@@ -6,3 +6,13 @@
 export const environment = {
   production: false
 };
+
+
+export const API = {
+  users: 'https://6aed40e1.ngrok.io/users/',
+  bars: 'https://6aed40e1.ngrok.io/bars/',
+  beers: 'https://6aed40e1.ngrok.io/beers/',
+  prizes: 'https://6aed40e1.ngrok.io/prizes/',
+  battles: 'https://6aed40e1.ngrok.io/battles/',
+
+}

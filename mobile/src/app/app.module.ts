@@ -2,9 +2,15 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
+
 
 import { QRCodeModule } from 'angular2-qrcode';
 import { CoreModule } from '../core/core.module';
+
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from '../core/user/user.effects';
+
 
 import { StoreModule } from '@ngrx/store';
 import { reducer } from '../core/app.reducer';
@@ -41,10 +47,12 @@ import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-genera
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     CoreModule,
     QRCodeModule,
     IonicModule.forRoot(MyApp),
-    StoreModule.provideStore(reducer)
+    StoreModule.provideStore(reducer),
+    EffectsModule.run(UserEffects),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -2,7 +2,7 @@ import { Prize } from '../../shared/models/prize.model';
 import { Beer } from '../../shared/models/beer.model';
 
 export class User {
-  id: number;
+  id: string;
   name: string;
   points: number;
   prizes: Prize[];

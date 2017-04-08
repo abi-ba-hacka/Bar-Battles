@@ -1,5 +1,5 @@
 export interface Prize {
-  id: number,
+  id: string,
   name: string,
   redeemed: boolean
 }

@@ -4,21 +4,33 @@ import { UserActions } from './user.actions';
 import { User } from './user.model';
 import { Observable } from 'rjxs';
 import { of } from 'rxjs/observable/of';
+import { UserService } from './user.service';
 
 @Injectable()
 export class UserEffects {
 
   constructor(
-    private actions$: Actions
+    private actions$: Actions,
+    private userService: UserService,
   ) {
 
   }
 
-  /*@Effect() getUser$ = this.actions$
-    .ofType(UserActions.Types.GET_USER)
-    .switchmap(action =>
-      this.userService.getUser(action.payload) TODO userService
-        .map((user: User) => new UserActions.GetUserSuccess(user))
-        .catch((e) => of(new UserActions.GetUserFail(e)))
-    )*/
+  @Effect() getUserByFacebookId = this.actions$
+    .ofType(UserActions.Types.USER_LOGIN)
+    .switchMap(action =>
+      this.userService.getUserByFacebookId(action.payload)
+        .map((user: User) => new UserActions.UserLoginSuccess(new User(user)))
+        .catch((e) => of(new UserActions.UserLoginFail(e)))
+    );
+
+  @Effect() editUser$ = this.actions$
+    .ofType(UserActions.Types.EDIT_USER)
+    .switchMap(action =>
+      this.userService.edit(action.payload.id, action.payload.data)
+        .map((user: User) => new UserActions.EditUserSuccess(new User(user)))
+        .catch((e) => of(new UserActions.EditUserFail(e)))
+    );
+
+
 }
