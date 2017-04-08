@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 
 export class ProfileTabComponent {
 
+    shareOnFacebook() {
+        console.log("SHARE ON FACEBOOK");
+    }
 }

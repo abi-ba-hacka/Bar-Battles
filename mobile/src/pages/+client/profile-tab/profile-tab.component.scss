@@ -1,0 +1,52 @@
+profile-tab {
+    .profile-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+        }
+        .name {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .bar-name {
+            font-size: 12px;
+            font-weight: 300;
+            ion-icon {
+                margin-right: 6px;
+            }
+        }
+
+        ion-list.points {
+            width: 100%;
+            ion-item.point .item-inner {
+                border-color: $color-grey;
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        .share {
+            background: $color-grey;
+        }
+    }
+
+    .content, .footer {
+        width: 100%;
+    }
+
+}
