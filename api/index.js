@@ -1,8 +1,11 @@
 var express = require('express')
+var cors = require('cors')
 var app = express()
 
 var db = require('./db')
 var qr = require('./qr')
+
+app.use(cors())
 
 app.get('/', function (req, res) {
   res.json({status: 200})
