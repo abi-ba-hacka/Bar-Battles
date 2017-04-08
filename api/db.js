@@ -5,6 +5,7 @@ exports.data = {
     id: '1',
     name: 'il pioni',
     points: 0,
+    activeBar: '',
     prizes: ['1'],
     beers: [],
     facebook: {
@@ -16,6 +17,7 @@ exports.data = {
     id: '2',
     name: 'il rami',
     points: 0,
+    activeBar: '',
     prizes: [],
     beers: [],
     facebook: {
@@ -27,6 +29,7 @@ exports.data = {
     id: '3',
     name: 'il panchi',
     points: 0,
+    activeBar: '',
     prizes: [],
     beers: [],
     facebook: {
@@ -38,6 +41,7 @@ exports.data = {
     id: '4',
     name: 'il lucho',
     points: 0,
+    activeBar: '2',
     prizes: [],
     beers: [],
     facebook: {
@@ -186,5 +190,28 @@ exports.getUserByFacebookId = function(req, res) {
     return;
   }
   res.json(model);
+  return;
+}
+
+// BAR
+exports.getBarUsers = function(req, res) {
+  console.log(req.params);
+  console.log(req.body);
+  if (!req.body.barId || !req.body.userId) {
+    res.json({error: 'BAD_PARAMS'})
+    return;
+  }
+  let user = exports.data.users.find(user => user.id === req.body.userId)
+  let bar = exports.data.bars.find(bar => bar.id === req.body.barId)
+
+  if (!user || !bar) {
+    res.json({error: 'BAD_DATA'})
+    return;
+  }
+
+  // TODO Do checkup of current battles
+  let users = exports.data.users.filter(user => user.activeBar === bar.id)
+
+  res.json(users);
   return;
 }

@@ -51,6 +51,11 @@ app.get('/users/facebook/:id', function (req, res) {
   db.getUserByFacebookId(req, res);
 })
 
+// BAR
+app.get('/bar/users/', function (req, res) {
+  db.getBarUsers(req, res);
+})
+
 // PRIZE
 app.post('/prize/send', function (req, res) {
   prize.send(req, res);
