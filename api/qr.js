@@ -4,7 +4,7 @@ var CryptoJS = require("crypto-js");
 exports.encrypt = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.body.qrcode || !req.body.data) {
+  if (!req.body.data) {
     res.json({error: 'BAD_DATA'});
     return;
   }
@@ -76,6 +76,8 @@ exports.redeem = function(req, res) {
     points: battle.points + 1
   })
   db.updateItemInModel('battles', battle);
+
+  // TODO Update battle log
 
   res.json({
     bar,

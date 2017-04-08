@@ -6,7 +6,7 @@ var app = express()
 
 var db = require('./db')
 var qr = require('./qr')
-var gift = require('./gift')
+var prize = require('./prize')
 
 app.use(cors())
 // parse application/x-www-form-urlencoded
@@ -42,10 +42,18 @@ app.post('/:model/remove/', function (req, res) {
 app.post('/redeem/', function (req, res) {
   qr.redeem(req, res);
 })
+app.post('/encrypt/', function (req, res) {
+  qr.encrypt(req, res);
+})
 
 // USER
 app.get('/users/facebook/:id', function (req, res) {
   db.getUserByFacebookId(req, res);
+})
+
+// PRIZE
+app.post('/prize/send', function (req, res) {
+  prize.send(req, res);
 })
 
 app.listen(3000)
