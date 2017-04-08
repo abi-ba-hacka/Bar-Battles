@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { UserService } from './user.service';
 import { BarActions } from '../bar/bar.actions';
+import { Bar } from '../bar/bar.model';
 
 @Injectable()
 export class UserEffects {
@@ -37,10 +38,12 @@ export class UserEffects {
     .ofType(UserActions.Types.SEND_QR)
     .mergeMap(action =>
       this.userService.redeemQR(action.payload.id, action.payload.qrcode)
-        .map((data: any) => {
+        .mergeMap((data: any) => {
+          console.log('data');
+          console.log(data);
           return Observable.from([
             new UserActions.EditUserSuccess(data.user),
-            new BarActions.GetBarSuccess(data.bar)
+            new BarActions.GetBarSuccess(data.bar),
             // TODO: rest of actions
           ])
         })

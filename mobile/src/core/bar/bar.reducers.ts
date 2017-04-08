@@ -11,13 +11,15 @@ export const initialBarState: BarState = {
   loading: false
 }
 
-export function bar(state = initialBarState, action: BarActions.Actions) {
+export function bar(state = initialBarState, action: BarActions.Actions): BarState {
   switch (action.type) {
 
     case BarActions.Types.GET_BAR:
       return Object.assign({}, state, {loading:true, error: null});
 
     case BarActions.Types.GET_BAR_SUCCESS:
+      console.log('GET_BAR_SUCCESS');
+      console.log(action);
       return Object.assign({}, state, {
         bar: action.payload,
         loading: false
