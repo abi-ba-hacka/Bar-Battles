@@ -29,7 +29,7 @@ exports.redeem = function(req, res) {
     res.json({error: 'BAD_DATA'});
     return;
   }
-  let user = db.users.find(user => user.id === req.body.userId);
+  let user = db.data.users.find(user => user.id === req.body.userId);
   if (!user) {
     res.json({error: 'BAD_USER'});
     return;
@@ -46,35 +46,31 @@ exports.redeem = function(req, res) {
     return;
   }
 
-  let bar = db.bars.find(bar => bar.id === qr.barId);
-  let beer = db.beers.find(beer => beer.id === qr.beerId);
+  let bar = db.data.bars.find(bar => bar.id === qr.barId);
+  let beer = db.data.beers.find(beer => beer.id === qr.beerId);
 
   // TODO get current battle if any (bar.activeBattle does not exist)
-  let battle = db.battles.find(battle => battle.id === bar.activeBattle);
+  let battle = db.data.battles.find(battle => battle.id === bar.activeBattle);
   // TODO get beer points on bar (take promotions into account)
 
   let points = 1;
-  user = Object.assign({}, user, {
+  user = db.updateItemInModel('users', Object.assign({}, user, {
     points: user.points + points,
-    beers: user.beers.push(beer.id)
-  })
-  db.updateItemInModel('users', user);
+    beers: user.beers.concat([beer.id])
+  }));
 
-  bar = Object.assign({}, bar, {
+  bar = db.updateItemInModel('bars', Object.assign({}, bar, {
     points: bar.points + 1
-  })
-  db.updateItemInModel('bars', bar);
+  }));
 
-  beer = Object.assign({}, beer, {
+  beer = db.updateItemInModel('beers', Object.assign({}, beer, {
     points: beer.points + 1
-  })
-  db.updateItemInModel('beers', beer);
+  }));
 
   if (battle) {
-    battle = Object.assign({}, battle, {
+    battle = db.updateItemInModel('battles', Object.assign({}, battle, {
       points: battle.points + 1
-    })
-    db.updateItemInModel('battles', battle);
+    }));
 
     // TODO Update battle log
   }

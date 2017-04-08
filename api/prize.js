@@ -27,7 +27,7 @@ exports.send = function(req, res) {
   }))
 
   receiver = db.updateItemInModel('users', Object.assign({}, receiver, {
-    prizes: receiver.prizes.push(prize.id)
+    prizes: receiver.prizes.concat([prize.id])
   }))
 
   prize = db.updateItemInModel('prizes', Object.assign({}, prize, {

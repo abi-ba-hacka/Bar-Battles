@@ -1,5 +1,5 @@
 exports.hash = 'randomString';
-let db = {
+exports.data = {
   // USERS
   users: [{
     id: '1',
@@ -101,11 +101,11 @@ let db = {
 exports.create = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model]) {
+  if (!req.params.model || !exports.data[req.params.model]) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
-  db[req.params.model].push(req.body);
+  exports.data[req.params.model].push(req.body);
   res.json(req.body);
   return;
 }
@@ -113,23 +113,23 @@ exports.create = function(req, res) {
 exports.get = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model]) {
+  if (!req.params.model || !exports.data[req.params.model]) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
   if (req.params.id) {
-    let model = db[req.params.model].find(model => model.id === req.params.id)
+    let model = exports.data[req.params.model].find(model => model.id === req.params.id)
     res.json(model);
     return;
   }
-  res.json(db[req.params.model]);
+  res.json(exports.data[req.params.model]);
   return;
 }
 
 exports.update = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model] || !req.params.id) {
+  if (!req.params.model || !exports.data[req.params.model] || !req.params.id) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
@@ -144,12 +144,12 @@ exports.update = function(req, res) {
 exports.remove = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model] || !req.params.id) {
+  if (!req.params.model || !exports.data[req.params.model] || !req.params.id) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
   let found;
-  db[req.params.model] = db[req.params.model].filter(model => {
+  exports.data[req.params.model] = exports.data[req.params.model].filter(model => {
     if (model.id === req.params.id) {
        found = Object.assign({}, model, req.body);
        return false;
@@ -162,7 +162,7 @@ exports.remove = function(req, res) {
 
 exports.updateItemInModel = function(model, item) {
   let found;
-  db[model] = db[model].map(model => {
+  exports.data[model] = exports.data[model].map(model => {
     if (model.id === item.id) {
        found = Object.assign({}, model, item);
        return found;
@@ -180,7 +180,7 @@ exports.getUserByFacebookId = function(req, res) {
     res.json({error: 'BAD_PARAMS'})
     return;
   }
-  let model = db.users.find(model => model.facebook.id === req.params.id)
+  let model = exports.data.users.find(model => model.facebook.id === req.params.id)
   if (!model) {
     res.json({error: 'BAD_ID'})
     return;
