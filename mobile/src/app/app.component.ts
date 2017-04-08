@@ -24,6 +24,7 @@ import { Store } from '@ngrx/store';
 export class MyApp {
   @ViewChild('sidemenu') nav;
   rootPage:any = AuthPageComponent;
+  private splashScreen: boolean = true;
 
   adminPages: Array<{name: string, component: any}>;
   clientPages: Array<{name: string, component: any}>;
@@ -36,17 +37,11 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      NativeStorage.getItem('user')
-      .then((data) => {
-        this.nav.push(ClientPageComponent);
-        splashScreen.hide();
-      }, (error) => {
-        this.nav.push(LoginPageComponent);
-        splashScreen.hide();
-      });
-
       statusBar.styleDefault();
       splashScreen.hide();
+      /*setTimeout(() => {
+          this.closeSplash();
+      }, 13000);*/
     });
 
     this.adminPages = [
@@ -58,6 +53,21 @@ export class MyApp {
       {name: 'Canjear Codigo', component: BattleTabPageComponent},
       {name: 'Generar Codigo', component: QRGeneratorPageComponent},
     ]
+  }
+
+  closeSplash() {
+      console.log("CLOSE SPLASH");
+      this.splashScreen = false;
+      this.hasUser();
+  }
+
+  hasUser() {
+    NativeStorage.getItem('user')
+    .then((data) => {
+      this.nav.push(ClientPageComponent);
+    }, (error) => {
+      this.nav.push(LoginPageComponent);
+    });
   }
 
   goToPage() {

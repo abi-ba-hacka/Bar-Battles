@@ -14,3 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$theme-primary: #B87333;
+$theme-secondary: #FAFAFA;
+$theme-background: #222222;
+
+.hidden {
+    display: none;
+}
+
+.splashscreen {
+    height: 100%;
+    background: $theme-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img  { max-width: 80%; }
+}
