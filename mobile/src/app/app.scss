@@ -40,6 +40,9 @@ ion-header.header-md {
         background-image: initial;
         bottom: 0;
     }
+    ion-segment ion-segment-button {
+        color: $color-light;
+    }
 }
 
 ion-toolbar {
