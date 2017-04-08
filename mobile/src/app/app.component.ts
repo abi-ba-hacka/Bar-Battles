@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController } from 'ionic-angular';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage } from 'ionic-native';
 
 import { AuthPageComponent } from '../pages/+auth/auth.component';
 
+import { Store } from '@ngrx/store';
 
 @Component({
   templateUrl: 'app.html'
