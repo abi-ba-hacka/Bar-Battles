@@ -6,22 +6,35 @@ import { MyApp } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from '../core/app.reducer';
 
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AuthPageComponent } from '../pages/+auth/auth.component';
+import { LoginPageComponent } from '../pages/+auth/+login/login.component';
+
+import { ClientPageComponent } from '../pages/+client/client.component';
+
+import { AdminPageComponent } from '../pages/+admin/admin.component';
+import { BarStatsPageComponent } from '../pages/+admin/bar-stats/bar-stats.component';
+import { BattleTabPageComponent } from '../pages/+admin/battle-tab/battle-tab.component';
+import { DiscountsPageComponent } from '../pages/+admin/discounts/discounts.component';
+import { GoalsPageComponent } from '../pages/+admin/goals/goals.component';
+import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-generator.component';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    AuthPageComponent,
+    LoginPageComponent,
+
+    ClientPageComponent,
+
+    AdminPageComponent,
+    BarStatsPageComponent,
+    BattleTabPageComponent,
+    DiscountsPageComponent,
+    GoalsPageComponent,
+    QRGeneratorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +44,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    LoginPageComponent,
+    AuthPageComponent,
+
+    ClientPageComponent,
+
+    AdminPageComponent,
+    BarStatsPageComponent,
+    BattleTabPageComponent,
+    DiscountsPageComponent,
+    GoalsPageComponent,
+    QRGeneratorPageComponent,
   ],
   providers: [
     StatusBar,
