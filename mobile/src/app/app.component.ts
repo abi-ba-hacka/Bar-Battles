@@ -25,6 +25,9 @@ export class MyApp {
   @ViewChild('sidemenu') nav;
   rootPage:any = AuthPageComponent;
 
+  adminPages: Array<{name: string, component: any}>;
+  clientPages: Array<{name: string, component: any}>;
+
   constructor(platform: Platform, statusBar: StatusBar,
               splashScreen: SplashScreen,
               public menuCtrl: MenuController,
