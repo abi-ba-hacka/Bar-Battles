@@ -84,5 +84,17 @@ export class ClientPageComponent {
       return decrypted;
   }
 
+  doFbLogout(){
+    var nav = this.navCtrl;
+    Facebook.logout()
+    .then((response) => {
+      //user logged out so we will remove him from the NativeStorage
+      NativeStorage.remove('user');
+      nav.push(LoginPageComponent);
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
 
 }
