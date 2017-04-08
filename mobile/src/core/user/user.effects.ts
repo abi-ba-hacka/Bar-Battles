@@ -43,11 +43,20 @@ export class UserEffects {
           console.log(data);
           return Observable.from([
             new UserActions.EditUserSuccess(data.user),
+            new BarActions.SetCurrentBarId(data.bar.id),
             new BarActions.GetBarSuccess(data.bar),
             // TODO: rest of actions
           ])
         })
         .catch((e) => of(new UserActions.EditUserFail(e)))
+    );
+
+  @Effect() getUsers$ = this.actions$
+    .ofType(UserActions.Types.GET_USERS)
+    .switchMap(action =>
+      this.userService.getUsers(action.payload)
+        .map((users: User[]) => new UserActions.GetUsersSuccess(users))
+        .catch((e) => of(new UserActions.GetUsersFail(e)))
     );
 
 

@@ -5,9 +5,11 @@ import { Bar } from './bar.model';
 export namespace BarActions {
 
   export const Types = {
-    GET_BAR: type('[Bat] Get Bar'),
-    GET_BAR_SUCCESS: type('[Bat] Get Bar Success'),
-    GET_BAR_FAIL: type('[Bat] Get Bar Fail'),
+    GET_BAR: type('[Bar] Get Bar'),
+    GET_BAR_SUCCESS: type('[Bar] Get Bar Success'),
+    GET_BAR_FAIL: type('[Bar] Get Bar Fail'),
+    SET_CURRENT_BAR_ID: type('[Bar] Set Current Bar Id'),
+
   }
 
   export class GetBar implements Action {
@@ -28,8 +30,17 @@ export namespace BarActions {
     constructor(public payload: any) { }
   }
 
+  export class SetCurrentBarId implements Action {
+    type = Types.SET_CURRENT_BAR_ID;
+
+    constructor(public payload: string) { }
+  }
+
+
+
   export type Actions
     = GetBar
     | GetBarSuccess
     | GetBarFail
+    | SetCurrentBarId
 }

@@ -24,6 +24,11 @@ export class UserService {
       .map(res => res.json());
   }
 
+  getUser(id: string) {
+    return this.http.get(API.users + id)
+      .map(res => res.json());
+  }
+
   edit(id: string, data: any) {
     return this.http.post(API.users + id, data, this.options)
       .map(res => res.json());
@@ -36,6 +41,12 @@ export class UserService {
 
   encrypt(data: any) {
     return this.http.post('https://6aed40e1.ngrok.io/encrypt/', {data}, this.options)
+      .map(res => res.json());
+  }
+
+  getUsers(data: any) {
+    return this.http
+      .post(API.bar + 'users/', data, this.options)
       .map(res => res.json());
   }
 }
