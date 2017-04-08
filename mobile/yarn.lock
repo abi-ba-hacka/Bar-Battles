@@ -2096,6 +2096,10 @@ ngrx-store-freeze@^0.1.9:
   dependencies:
     deep-freeze-strict "^1.1.1"
 
+ngrx-store-logger@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/ngrx-store-logger/-/ngrx-store-logger-0.1.7.tgz#da3b17d230e92d99c849333b08a52a7b08b884fe"
+
 node-gyp@^3.3.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-3.6.0.tgz#7474f63a3a0501161dda0b6341f022f14c423fa6"
