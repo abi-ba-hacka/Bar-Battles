@@ -9,7 +9,8 @@ export class Bar {
   name: string;
   id: string;
   image: string;
-  battle: Battle;
+  battles: Battle[];
+  activeBattle: Battle;
   prizes: Prize[];
   promotions: any[];
 
@@ -19,7 +20,8 @@ export class Bar {
     this.name = data.name;
     this.id = data.id;
     this.image = data.image;
-    this.battle = data.battle;
+    this.battles = data.battles;
+    this.activeBattle = data.activeBattle;
     this.prizes = data.prizes;
     this.promotions = data.promotions;
   }

@@ -51,6 +51,16 @@ export class LoginPageComponent {
     })
   }
 
+  getUsers() {
+    let barId;
+    let userId;
+    this.store.take(1).subscribe(store => {
+      barId = store.barState.activeBar;
+      userId = store.userState.user.id;
+    })
+    this.store.dispatch(new UserActions.GetUsers({badId: barId, userId: userId}))
+  }
+
   doFbLogin(){
     let permissions = new Array();
     //the permissions your facebook app needs from the user

@@ -11,6 +11,7 @@ export const environment = {
 export const API = {
   users: 'https://6aed40e1.ngrok.io/users/',
   bars: 'https://6aed40e1.ngrok.io/bars/',
+  bar: 'https://6aed40e1.ngrok.io/bar/',
   beers: 'https://6aed40e1.ngrok.io/beers/',
   prizes: 'https://6aed40e1.ngrok.io/prizes/',
   battles: 'https://6aed40e1.ngrok.io/battles/',

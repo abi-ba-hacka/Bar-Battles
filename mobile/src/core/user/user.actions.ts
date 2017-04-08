@@ -18,6 +18,9 @@ export namespace UserActions {
     SEND_QR: type('[User] Send QR'),
     SEND_QR_SUCCESS: type('[User] Send QR Success'),
     SEND_QR_FAIL: type('[User] Send QR Fail'),
+    GET_USERS: type('[User] Get Users'),
+    GET_USERS_SUCCESS: type('[User] Get Users Success'),
+    GET_USERS_FAIL: type('[User] Get Users Fail'),
 
 
   }
@@ -91,7 +94,25 @@ export namespace UserActions {
   export class SendQRFail implements Action {
     type = Types.SEND_QR_FAIL;
 
-    constructor(public payload: any) { } // recibe un userState
+    constructor(public payload: any) { }
+  }
+
+  export class GetUsers implements Action {
+    type = Types.GET_USERS;
+
+    constructor(public payload: any) { }
+  }
+
+  export class GetUsersSuccess implements Action {
+    type = Types.GET_USERS_SUCCESS;
+
+    constructor(public payload: User[]) { }
+  }
+
+  export class GetUsersFail implements Action {
+    type = Types.GET_USERS_FAIL;
+
+    constructor(public payload: any) { }
   }
 
 
@@ -111,5 +132,8 @@ export namespace UserActions {
     | SendQR
     | SendQRSuccess
     | SendQRFail
+    | GetUsers
+    | GetUsersSuccess
+    | GetUsersFail
 
 }
