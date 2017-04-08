@@ -1,3 +1,4 @@
+exports.hash = 'randomString';
 let db = {
   // USERS
   users: [{
@@ -58,7 +59,13 @@ let db = {
     promotions: []
   }, {
     id: '2',
-    name: 'patagonia bariloche'
+    name: 'patagonia bariloche',
+    points: 4,
+    image: '',
+    battle: '1',
+    prizes: [],
+    users: ['4'],
+    promotions: []
   }],
 
   // BEERS
