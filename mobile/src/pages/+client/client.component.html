@@ -3,6 +3,7 @@
     <button ion-button clear (click)="scan()">
         <img class="icon" src="assets/icon/qrcode-scan.png">
     </button>
+
     <ion-segment [(ngModel)]="tab">
       <ion-segment-button value="profile">
         Perfil
@@ -11,11 +12,16 @@
         Bar
       </ion-segment-button>
     </ion-segment>
+
+    <button ion-button clear>
+        <ion-icon name="md-more"></ion-icon>
+    </button>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding [ngSwitch]="pet">
-    TEST
+
 </ion-content>
 
 <!--ion-content padding>
