@@ -57,7 +57,8 @@ exports.redeem = function(req, res) {
 
   let points = 1;
   user = Object.assign({}, user, {
-    points: user.points + points
+    points: user.points + points,
+    beers: user.beers.push(beer.id)
   })
   db.updateItemInModel('users', user);
 

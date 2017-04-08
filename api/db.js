@@ -8,7 +8,7 @@ let db = {
     prizes: ['1'],
     beers: [],
     facebook: {
-      id: '',
+      id: '123',
       name: '',
       token: ''
     }
