@@ -1,0 +1,19 @@
+<ion-menu type="overlay" id="admin-menu" [content]="sidemenu">
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of adminPages" (click)="goToPage2(p)">
+       {{p.name}}
+     </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu type="overlay" id="client-menu" [content]="sidemenu">
+  <ion-content>
+    <ion-list>
+      <p (click)="goToPage()">Client menu</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #sidemenu [root]="rootPage"></ion-nav>
