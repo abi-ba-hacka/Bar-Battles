@@ -33,15 +33,12 @@
       </ion-slide>
 
   </ion-slides>
-
-  <button ion-button (click)="goToAdminPage()">Admin view</button>
-  <button ion-button (click)="goToClientPage()">Client view</button>
-
+ 
 </ion-content>
 
 <ion-footer>
     <button ion-button (click)="doFbLogin()">INICIAR SESION</button>
-    <button ion-button (click)="doGhostLogin()" color="light" clear>
+    <button ion-button (click)="goToClientPage(); doGhostLogin()" color="light" clear>
         CONTINUAR SIN INICIAR SESION
     </button>
 </ion-footer>
