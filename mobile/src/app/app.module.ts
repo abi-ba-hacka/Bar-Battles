@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { QRCodeModule } from 'angular2-qrcode';
+import { CoreModule } from '../core/core.module';
+
+import { StoreModule } from '@ngrx/store';
+import { reducer } from '../core/app.reducer';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -35,7 +41,10 @@ import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-genera
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    CoreModule,
+    QRCodeModule,
+    IonicModule.forRoot(MyApp),
+    StoreModule.provideStore(reducer)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
