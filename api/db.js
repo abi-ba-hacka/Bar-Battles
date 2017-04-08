@@ -57,7 +57,8 @@ exports.data = {
     name: 'patagonia bsas',
     points: 0,
     image: '',
-    battle: '1',
+    activeBattle: '1',
+    battles: ['1'],
     prizes: [],
     users: ['1'],
     promotions: []
@@ -66,7 +67,8 @@ exports.data = {
     name: 'patagonia bariloche',
     points: 4,
     image: '',
-    battle: '1',
+    activeBattle: '1',
+    battles: ['1'],
     prizes: [],
     users: ['4'],
     promotions: []

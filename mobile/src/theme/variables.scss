@@ -12,10 +12,11 @@ $font-path: "../assets/fonts";
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$color-primary: #B87333;
+$color-primary: #DFAC47;
 $color-light: #FAFAFA;
 $color-dark: #222222;
 $color-grey: #3A3A3A;
+$color-lightgrey: #8D8D8D;
 
 $background-color: $color-dark;
 $toolbar-background: $color-dark;
@@ -42,7 +43,8 @@ $colors: (
   danger:     #f53d3d,
   light:      $color-light,
   dark:       $color-dark,
-  grey:       $color-grey
+  grey:       $color-grey,
+  lightgrey:       $color-lightgrey
 );
 
 

@@ -25,6 +25,12 @@
     display: none;
 }
 
+.round {
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+
 .splashscreen {
     height: 100%;
     background: $color-dark;
@@ -40,6 +46,12 @@ ion-header.header-md {
         background-image: initial;
         bottom: 0;
     }
+    button {
+        color: $color-light;
+    }
+    ion-segment ion-segment-button.segment-button {
+        color: $color-light;
+    }
 }
 
 ion-toolbar {
@@ -54,6 +66,13 @@ ion-toolbar {
     }
 }
 
-ion-content {
+ion-content.content {
+    color: $color-light;
+    .scroll-content {
+        overflow-y: auto;
+    }
+}
 
+ion-list ion-item.item {
+    color: $color-light;
 }
