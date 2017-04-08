@@ -9,9 +9,10 @@ export class AppComponent implements OnInit {
 
   @ViewChild('myvideo') myVideo: any;
 
-  peer;
-  anotherid;
-  mypeerid;
+  public peer;
+  public anotherid;
+  public mypeerid;
+  public connected = false;
 
   constructor() {
 
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
     n.getUserMedia =  ( n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia || n.msGetUserMedia );
 
     this.peer.on('call', (call) => {
+      this.connected = true;
       n.getUserMedia({video: true, audio: true}, (stream) => {
         call.answer(stream);
         call.on('stream', (remotestream) => {
@@ -47,13 +49,6 @@ export class AppComponent implements OnInit {
     })
   }
 
-  connect(text){
-    var conn = this.peer.connect(this.anotherid);
-    conn.on('open', () => {
-      conn.send(text);
-    });
-  }
-
   videoconnect(){
     let video = this.myVideo.nativeElement;
     var localvar = this.peer;
@@ -62,7 +57,7 @@ export class AppComponent implements OnInit {
     var n = <any>navigator;
 
     n.getUserMedia = ( n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia  || n.msGetUserMedia );
-
+    this.connected = true;
     n.getUserMedia({video: true, audio: true}, (stream) => {
       var call = localvar.call(fname, stream);
       call.on('stream', (remotestream) => {
