@@ -171,3 +171,20 @@ exports.updateItemInModel = function(model, item) {
   })
   return found;
 }
+
+// USER
+exports.getUserByFacebookId = function(req, res) {
+  console.log(req.params);
+  console.log(req.body);
+  if (!req.params.id) {
+    res.json({error: 'BAD_PARAMS'})
+    return;
+  }
+  let model = db.users.find(model => model.facebook.id === req.params.id)
+  if (!model) {
+    res.json({error: 'BAD_ID'})
+    return;
+  }
+  res.json(model);
+  return;
+}

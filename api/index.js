@@ -28,8 +28,14 @@ app.post('/:model/remove/', function (req, res) {
   db.remove(req, res);
 })
 
+// QR
 app.post('/redeem/', function (req, res) {
   qr.redeem(req, res);
+})
+
+// USER
+app.get('/users/facebook/:id', function (req, res) {
+  db.getUserByFacebookId(req, res);
 })
 
 app.listen(3000)
