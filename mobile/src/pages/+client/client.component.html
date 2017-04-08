@@ -1,13 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>Client view</ion-title>
-  </ion-navbar>
+  <ion-toolbar primary>
+    <ion-segment dark [(ngModel)]="tab">
+      <ion-segment-button value="profile">
+        Perfil
+      </ion-segment-button>
+      <ion-segment-button value="bar">
+        Bar
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding [ngSwitch]="pet">
+    TEST
+</ion-content>
+
+<!--ion-content padding>
   <h2>Client view</h2>
 
   <ion-list>
@@ -49,11 +57,11 @@
       <ion-input [(ngModel)]="decryptedText" type="text"></ion-input>
     </ion-item>
   </ion-list>
-<button ion-button (click)="doFbLogout()">Logout</button>
+    <button ion-button (click)="doFbLogout()">Logout</button>
 
-<ion-label stacked>User info</ion-label>
-<div *ngIf="user">
-  {{user.name}}
-  <img src="{{user.picture}}">
-</div>
-</ion-content>
+    <ion-label stacked>User info</ion-label>
+    <div *ngIf="user">
+      {{user.name}}
+      <img src="{{user.picture}}">
+    </div>
+</ion-content-->

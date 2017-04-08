@@ -1,3 +1,27 @@
 auth-root {
 
+    ion-content[padding], ion-footer[padding] {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+
+    ion-slides {
+        ion-slide {
+            color: $color-light;
+        }
+    }
+    ion-footer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        button {
+            width: 100%;
+        }
+        a {
+            margin-top: 5px;
+            color: $color-light;
+        }
+    }
+
 }

@@ -1,28 +1,47 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Authentication</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-    <ion-slides pager>
+
+  <ion-slides pager>
 
     <ion-slide>
-      <h2>Slide 1</h2>
-      <img src="assets/img/logo_splash.png">
+      <img src="assets/img/onboarding/step1.png">
+      <h2>Sustentabilidad</h2>
+      <p>
+        En nuestra microcerveceria la prioridad es el
+        medioambiente. Conocé cuán fuerte es
+        nuestro compromiso.
+      </p>
     </ion-slide>
 
     <ion-slide>
-      <h2>Slide 2</h2>
+      <img src="assets/img/onboarding/step2.png">
+      <h2>Sustentabilidad</h2>
+      <p>
+        En nuestra microcerveceria la prioridad es el
+        medioambiente. Conocé cuán fuerte es
+        nuestro compromiso.
+      </p>
     </ion-slide>
 
     <ion-slide>
-      <h2>Slide 3</h2>
+      <img src="assets/img/onboarding/step3.png">
+      <h2>Sustentabilidad</h2>
+      <p>
+        En nuestra microcerveceria la prioridad es el
+        medioambiente. Conocé cuán fuerte es
+        nuestro compromiso.
+      </p>
     </ion-slide>
 
   </ion-slides>
+
   <button ion-button (click)="goToAdminPage()">Admin view</button>
   <button ion-button (click)="goToClientPage()">Client view</button>
 
-  <button ion-button (click)="doFbLogin()">Login With Facebook</button>
 </ion-content>
+
+<ion-footer padding>
+  <button ion-button (click)="doFbLogin()">INICIAR SESION</button>
+  <button ion-button (click)="doGhostLogin()" color="light" clear>
+      CONTINUAR SIN INICIAR SESION
+  </button>
+</ion-footer>
