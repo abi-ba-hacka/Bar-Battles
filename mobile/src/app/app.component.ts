@@ -66,7 +66,7 @@ export class MyApp {
     .then((data) => {
       this.nav.push(ClientPageComponent);
     }, (error) => {
-      this.nav.push(LoginPageComponent);
+      /*this.nav.push(LoginPageComponent);*/
     });
   }
 

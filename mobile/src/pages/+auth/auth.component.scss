@@ -1,3 +1,32 @@
 auth-root {
+    flex-direction: column;
+    display: flex !important;
+
+    ion-slides {
+        ion-slide {
+            color: $color-light;
+        }
+    }
+
+    ion-content {
+        display: flex;
+        flex: 1;
+        position: relative !important;
+        .scroll-content {
+
+        }
+    }
+    ion-footer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        button {
+            width: 100%;
+        }
+        a {
+            margin-top: 5px;
+            color: $color-light;
+        }
+    }
 
 }

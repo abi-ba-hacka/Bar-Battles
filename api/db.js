@@ -1,13 +1,15 @@
-let db = {
+exports.hash = 'randomString';
+exports.data = {
   // USERS
   users: [{
     id: '1',
     name: 'il pioni',
     points: 0,
+    activeBar: '',
     prizes: ['1'],
     beers: [],
     facebook: {
-      id: '',
+      id: '123',
       name: '',
       token: ''
     }
@@ -15,6 +17,7 @@ let db = {
     id: '2',
     name: 'il rami',
     points: 0,
+    activeBar: '',
     prizes: [],
     beers: [],
     facebook: {
@@ -26,6 +29,7 @@ let db = {
     id: '3',
     name: 'il panchi',
     points: 0,
+    activeBar: '',
     prizes: [],
     beers: [],
     facebook: {
@@ -37,6 +41,7 @@ let db = {
     id: '4',
     name: 'il lucho',
     points: 0,
+    activeBar: '2',
     prizes: [],
     beers: [],
     facebook: {
@@ -58,7 +63,13 @@ let db = {
     promotions: []
   }, {
     id: '2',
-    name: 'patagonia bariloche'
+    name: 'patagonia bariloche',
+    points: 4,
+    image: '',
+    battle: '1',
+    prizes: [],
+    users: ['4'],
+    promotions: []
   }],
 
   // BEERS
@@ -94,11 +105,11 @@ let db = {
 exports.create = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model]) {
+  if (!req.params.model || !exports.data[req.params.model]) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
-  db[req.params.model].push(req.body);
+  exports.data[req.params.model].push(req.body);
   res.json(req.body);
   return;
 }
@@ -106,23 +117,23 @@ exports.create = function(req, res) {
 exports.get = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model]) {
+  if (!req.params.model || !exports.data[req.params.model]) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
   if (req.params.id) {
-    let model = db[req.params.model].find(model => model.id === req.params.id)
+    let model = exports.data[req.params.model].find(model => model.id === req.params.id)
     res.json(model);
     return;
   }
-  res.json(db[req.params.model]);
+  res.json(exports.data[req.params.model]);
   return;
 }
 
 exports.update = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model] || !req.params.id) {
+  if (!req.params.model || !exports.data[req.params.model] || !req.params.id) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
@@ -137,12 +148,12 @@ exports.update = function(req, res) {
 exports.remove = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.params.model || !db[req.params.model] || !req.params.id) {
+  if (!req.params.model || !exports.data[req.params.model] || !req.params.id) {
     res.json({error: 'BAD_MODEL'})
     return;
   }
   let found;
-  db[req.params.model] = db[req.params.model].filter(model => {
+  exports.data[req.params.model] = exports.data[req.params.model].filter(model => {
     if (model.id === req.params.id) {
        found = Object.assign({}, model, req.body);
        return false;
@@ -155,7 +166,7 @@ exports.remove = function(req, res) {
 
 exports.updateItemInModel = function(model, item) {
   let found;
-  db[model] = db[model].map(model => {
+  exports.data[model] = exports.data[model].map(model => {
     if (model.id === item.id) {
        found = Object.assign({}, model, item);
        return found;
@@ -163,4 +174,44 @@ exports.updateItemInModel = function(model, item) {
     return model;
   })
   return found;
+}
+
+// USER
+exports.getUserByFacebookId = function(req, res) {
+  console.log(req.params);
+  console.log(req.body);
+  if (!req.params.id) {
+    res.json({error: 'BAD_PARAMS'})
+    return;
+  }
+  let model = exports.data.users.find(model => model.facebook.id === req.params.id)
+  if (!model) {
+    res.json({error: 'BAD_ID'})
+    return;
+  }
+  res.json(model);
+  return;
+}
+
+// BAR
+exports.getBarUsers = function(req, res) {
+  console.log(req.params);
+  console.log(req.body);
+  if (!req.body.barId || !req.body.userId) {
+    res.json({error: 'BAD_PARAMS'})
+    return;
+  }
+  let user = exports.data.users.find(user => user.id === req.body.userId)
+  let bar = exports.data.bars.find(bar => bar.id === req.body.barId)
+
+  if (!user || !bar) {
+    res.json({error: 'BAD_DATA'})
+    return;
+  }
+
+  // TODO Do checkup of current battles
+  let users = exports.data.users.filter(user => user.activeBar === bar.id)
+
+  res.json(users);
+  return;
 }
