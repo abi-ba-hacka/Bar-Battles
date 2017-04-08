@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { BarcodeScanner } from 'ionic-native';
-import { BarcodeData } from '../Barcode';
+import { BarcodeData } from '../barcode';
 
 import { Facebook, NativeStorage } from 'ionic-native';
 import { LoginPageComponent } from '../+auth/+login/login.component';
