@@ -4,13 +4,13 @@ var CryptoJS = require("crypto-js");
 exports.encrypt = function(req, res) {
   console.log(req.params);
   console.log(req.body);
-  if (!req.body.qrcode || !req.body.data) {
+  if (!req.body.data) {
     res.json({error: 'BAD_DATA'});
     return;
   }
   let qrcode;
   try {
-    qrcode = CryptoJS.AES.encrypt(JSON.stringify(req.body.data), db.hash);
+    qrcode = CryptoJS.AES.encrypt(JSON.stringify(req.body.data), db.hash).toString();
   } catch (e) {
     console.log('qrcode encrypt error');
     console.log(e);
@@ -18,7 +18,7 @@ exports.encrypt = function(req, res) {
     return;
   }
 
-  res.json(qrcode);
+  res.json({data: qrcode});
   return;
 }
 
@@ -45,14 +45,12 @@ exports.redeem = function(req, res) {
     res.json({error: 'BAD_QRCODE'});
     return;
   }
-  qr = {
-    barId: '1',
-    beerId: '1'
-  };
 
   let bar = db.bars.find(bar => bar.id === qr.barId);
   let beer = db.beers.find(beer => beer.id === qr.beerId);
-  let battle = db.battles.find(battle => battle.id === qr.battleId);
+
+  // TODO get current battle if any (bar.activeBattle does not exist)
+  let battle = db.battles.find(battle => battle.id === bar.activeBattle);
   // TODO get beer points on bar (take promotions into account)
 
   let points = 1;
@@ -72,10 +70,14 @@ exports.redeem = function(req, res) {
   })
   db.updateItemInModel('beers', beer);
 
-  battle = Object.assign({}, battle, {
-    points: battle.points + 1
-  })
-  db.updateItemInModel('battles', battle);
+  if (battle) {
+    battle = Object.assign({}, battle, {
+      points: battle.points + 1
+    })
+    db.updateItemInModel('battles', battle);
+
+    // TODO Update battle log
+  }
 
   res.json({
     bar,
