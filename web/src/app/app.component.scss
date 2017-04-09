@@ -58,7 +58,7 @@ video {
     justify-content: space-between;
 
     .last-events {
-        max-width: 25%;
+        max-width: 35%;
         max-height: 50%;
         padding: 0 30px;
 
@@ -99,6 +99,52 @@ video {
                 color: $color-lightgrey;
                 font-size: 11px;
             }
+        }
+    }
+
+    .bars {
+        max-width: 40%;
+        padding: 51px 40px;
+
+        display: flex;
+
+        .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $color-light;
+            &:first-child {
+                border-right: 1px solid $color-primary;
+            }
+            .counter {
+                width: 120px;
+                height: 120px;
+                background: $color-primary;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin-right: 20px;
+                margin-left: 20px;
+                margin-bottom: 20px;
+
+                span {
+                    font-size: 15px;
+                }
+                .number {
+                    font-size: 50px;
+                    font-weight: 900;
+                }
+            }
+            .bar-name {
+                font-size: 15px;
+                max-width: 100px;
+                text-align: center;
+            }
+        }
+        .v-separator {
+
         }
     }
 }
