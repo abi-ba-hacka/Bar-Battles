@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'redeem',
-  templateUrl: './redeem.component.html'
+  templateUrl: './redeem.component.html',
 })
 
 export class RedeemComponent implements OnInit {
