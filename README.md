@@ -1,1 +1,1 @@
-beer hackathon repo
+# Cheers by Bar Battles
