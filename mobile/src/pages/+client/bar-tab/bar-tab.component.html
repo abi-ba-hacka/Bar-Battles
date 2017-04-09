@@ -1,1 +1,25 @@
-BAR TAB
+<div class="bar-tab">
+    <div class="avatars">
+        <div class="avatar round" [class.double]="battleStarted">
+            <img [src]="barImage">
+        </div>
+        <div class="avatar round" [class.double]="battleStarted" *ngIf="battleStarted">
+            <img [src]="opponentBarImage">
+        </div>
+    </div>
+
+    <h3 class="name">
+        {{barName}}
+        <!-- if bar.type == refugee barName then return first 2 words of barName -->
+        <template [ngIf]="battleStarted">
+            y {{opponentBarName}}
+        </template>
+    </h3>
+    <span *ngIf="!battleStarted" class="bar-location">
+        <ion-icon name='md-pin'></ion-icon>Callao y viamonte, Buenos Aires
+    </span>
+    <span *ngIf="battleStarted" class="bar-info">
+        Interactuá con el bar amigo de {{opponentBarName}} escaneando
+        los códigos QR de los tickets.
+    </span>
+</div>
