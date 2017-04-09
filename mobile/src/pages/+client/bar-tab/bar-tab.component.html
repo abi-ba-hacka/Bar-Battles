@@ -32,11 +32,11 @@
                     <div class="bars">
                         <div class="bar">
                             <img [src]="bar.image">
-                            <span>{{barName}}</span>
+                            <span>{{bar.name}}</span>
                         </div>
                         <div class="bar" *ngIf="rivalBar.image">
                             <img [src]="rivalBar.image">
-                            <span>{{opponentBarName}}</span>
+                            <span>{{rivalBar.name}}</span>
                         </div>
                     </div>
                     <div class="date">
@@ -123,6 +123,6 @@
 
     </div>
 
-<button ion-button (click)="toggleBattle()">Battle</button>
+<button ion-button *ngIf="bar" (click)="toggleBattle()">Battle</button>
 
 </div>

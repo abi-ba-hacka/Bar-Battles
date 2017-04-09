@@ -20,7 +20,7 @@ export class ClientPageComponent {
   user: any;
   userReady: boolean = false;
 
-  public tab: string = 'bar';
+  public tab: string = 'profile';
 
   constructor(
     public navCtrl: NavController,
