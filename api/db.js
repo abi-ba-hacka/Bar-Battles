@@ -3,8 +3,8 @@ exports.data = {
   // USERS
   users: [{
     id: '1',
-    name: 'il pioni',
-    image: '',
+    name: 'sebas',
+    image: 'https://fb-s-c-a.akamaihd.net/h-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=275edc630b186c284fa7cb05cd3baae1&oe=598B7D4A&__gda__=1502557718_96e88d1cbe2e8682cd3859d0e9131887',
     points: 0,
     activeBar: '',
     prizes: ['1'],
@@ -16,8 +16,8 @@ exports.data = {
     }
   }, {
     id: '2',
-    name: 'il rami',
-    image: '',
+    name: 'rama',
+    image: 'https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/c32.0.160.160/p160x160/15871912_10212275289543867_1051986596874152479_n.jpg?oh=9b6237770facff3cfa768be6a75b4799&oe=595E72F2',
     points: 0,
     activeBar: '',
     prizes: [],
@@ -29,8 +29,8 @@ exports.data = {
     }
   }, {
     id: '3',
-    name: 'il panchi',
-    image: '',
+    name: 'pancho',
+    image: 'https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p160x160/16387870_10211560272067882_6068786500899002109_n.jpg?oh=320dca105695885bbfc7a6ed88b86550&oe=599593A6',
     points: 0,
     activeBar: '',
     prizes: [],
@@ -42,14 +42,14 @@ exports.data = {
     }
   }, {
     id: '4',
-    name: 'il lucho',
-    image: '',
+    name: 'lucho',
+    image: 'https://fb-s-d-a.akamaihd.net/h-ak-xpt1/v/t1.0-9/10500366_10152461445303476_7908026095031656898_n.jpg?oh=676d1f8fe8b86a0af4b388f1035127e5&oe=5988FC7D&__gda__=1502327706_462077912d4aa8665a210141a60dbc84',
     points: 0,
     activeBar: '2',
     prizes: [],
     beers: [],
     facebook: {
-      id: '',
+      id: '10155132820368476',
       name: '',
       token: ''
     }

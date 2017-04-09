@@ -25,6 +25,11 @@ export class AppComponent implements OnInit {
       this.mypeerid = this.peer.id;
     },3000);
 
+    setTimeout(() => {
+      this.anotherid = 'piono-beer';
+      this.videoconnect();
+    },3000);
+
     this.peer.on('connection', (conn) => {
       conn.on('data', (data) => {
         console.log(data);
