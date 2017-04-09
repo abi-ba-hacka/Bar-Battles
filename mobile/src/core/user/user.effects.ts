@@ -19,6 +19,15 @@ export class UserEffects {
 
   }
 
+/* GET USER
+  @Effect() getUser$ = this.actions$
+    .ofType(UserActions.Types.USER_LOGIN)
+    .switchMap(action =>
+      this.userService.getUser(action.payload)
+        .map((user: User) => new UserActions.UserLoginSuccess(new User(user)))
+        .catch((e) => of(new UserActions.UserLoginFail(e)))
+    );
+    */
   @Effect() getUserByFacebookId$ = this.actions$
     .ofType(UserActions.Types.USER_LOGIN)
     .switchMap(action =>

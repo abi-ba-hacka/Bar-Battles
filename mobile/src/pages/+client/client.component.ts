@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { BarcodeScanner } from 'ionic-native';
 import { BarcodeData } from '../barcode';
+import { UserActions } from '../../core/user/user.actions';
 
 import { Facebook, NativeStorage } from 'ionic-native';
 import { LoginPageComponent } from '../+auth/+login/login.component';
@@ -15,14 +16,6 @@ import { Store } from '@ngrx/store';
   templateUrl: 'client.component.html'
 })
 export class ClientPageComponent {
-
-  data: any;
-
-  text: string;
-  encryptedText: string;
-  decryptedText: string;
-
-  key: string = "banana12345";
 
   user: any;
   userReady: boolean = false;
@@ -47,7 +40,9 @@ export class ClientPageComponent {
       };
         this.userReady = true;
     }, (error) => {
+      console.log('no user logged');
       console.log(error); // no user logged
+      this.store.dispatch(new UserActions.GetUser('1'))
     });
   }
 
@@ -61,29 +56,13 @@ export class ClientPageComponent {
       .then((result) => {
       if (!result.cancelled) {
         const barcodeData = new BarcodeData(result.text, result.format);
-        this.data = barcodeData;
-        this.decryptedText = this.decrypt(this.data.text);
         // TODO Should be
-        // this.decryptedText = EncriptionService.decrypt(this.data.text);
+        // this.decryptedText = EncriptionService.decrypt(barcodeData.text);
       }
       })
       .catch((err) => {
         alert(err);
       })
-  }
-
-  encrypt(data: any) {
-      let encrypted = CryptoJS.AES.encrypt(data, this.key).toString();
-      console.log("encrypted");
-      console.log(encrypted);
-      return encrypted;
-  }
-
-  decrypt(data: any) {
-      let decrypted = CryptoJS.AES.decrypt(data, this.key).toString(CryptoJS.enc.Utf8);
-      console.log("decrypted");
-      console.log(decrypted);
-      return decrypted;
   }
 
   doFbLogout(){

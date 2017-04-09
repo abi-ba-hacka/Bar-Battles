@@ -31,7 +31,7 @@ export namespace UserActions {
   export class GetUser implements Action {
     type = Types.GET_USER;
 
-    constructor(public payload: number) { }
+    constructor(public payload: string) { }
   }
 
   export class GetUserSuccess implements Action {
