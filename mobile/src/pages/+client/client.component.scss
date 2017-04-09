@@ -7,20 +7,24 @@ client-root {
         padding: 20px;
         .avatars {
             display: flex;
-            .avatar {
-                width: 100px;
-                height: 100px;
-                min-width: 100px;
-                min-height: 100px;
-                &.double {
-                    border: 8px solid $color-dark;
-                    &:first-child {
-                        margin-right: -30px;
-                        z-index: 2;
-                    }
-                    img {
-                        border: 2px solid $color-primary;
-                    }
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            min-height: 100px;
+            &.double {
+                width: 116px;
+                height: 116px;
+                min-width: 116px;
+                min-height: 116px;
+                border: 8px solid $color-dark;
+                &:first-child {
+                    margin-right: -30px;
+                    z-index: 2;
+                }
+                img {
+                    border: 2px solid $color-primary;
                 }
             }
         }
