@@ -1,3 +1,42 @@
 client-root {
-
+    .bar-tab, .profile-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100%;
+        padding: 20px;
+        .avatars {
+            display: flex;
+            .avatar {
+                width: 100px;
+                height: 100px;
+                min-width: 100px;
+                min-height: 100px;
+                &.double {
+                    border: 8px solid $color-dark;
+                    &:first-child {
+                        margin-right: -10px;
+                        z-index: 2;
+                    }
+                    img {
+                        border: 2px solid #DFAC47;
+                    }
+                }
+            }
+        }
+        .name {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        .bar-location, .bar-info {
+            font-size: 12px;
+            font-weight: 300;
+            text-align: center;
+            ion-icon {
+                margin-right: 6px;
+            }
+        }
+    }
 }

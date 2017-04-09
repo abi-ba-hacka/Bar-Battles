@@ -1,10 +1,6 @@
 profile-tab {
     .profile-tab {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100%;
-        padding: 20px;
+
     }
 
     .content {
@@ -12,25 +8,6 @@ profile-tab {
         flex-direction: column;
         align-items: center;
         flex: 1;
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            min-width: 100px;
-            min-height: 100px;
-        }
-        .name {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .bar-name {
-            font-size: 12px;
-            font-weight: 300;
-            ion-icon {
-                margin-right: 6px;
-            }
-        }
 
         ion-list.points {
             width: 100%;
@@ -59,7 +36,7 @@ profile-tab {
                 .number, .desc {
                     margin: 0;
                 }
-                .number {
+                .number, .beer-name {
                     display: flex;
                     align-items: center;
                     font-size: 50px;
@@ -74,6 +51,9 @@ profile-tab {
                     ion-icon {
                         font-size: 15px;
                     }
+                }
+                .beer-name {
+                    font-size: 14px;
                 }
                 .desc {
                     font-size: 20px;
