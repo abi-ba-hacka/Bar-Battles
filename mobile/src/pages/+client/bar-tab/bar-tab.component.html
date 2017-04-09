@@ -16,10 +16,49 @@
         </template>
     </h3>
     <span *ngIf="!battleStarted" class="bar-location">
-        <ion-icon name='md-pin'></ion-icon>Callao y viamonte, Buenos Aires
+        <ion-icon name='md-pin'></ion-icon>{{barLocation}}
     </span>
     <span *ngIf="battleStarted" class="bar-info">
         Interactuá con el bar amigo de {{opponentBarName}} escaneando
         los códigos QR de los tickets.
     </span>
+
+    <ng-template [ngIf]="!battleStarted">
+        <div class="next-battle">
+            <h2 class="title">PRÓXIMO DUELO</h2>
+            <div class="info">
+                <div class="bar-info">
+                    <div class="bars">
+                        <div class="bar">
+                            <img [src]="barImage">
+                            <span>{{barName}}</span>
+                        </div>
+                        <div class="bar">
+                            <img [src]="opponentBarImage">
+                            <span>{{opponentBarName}}</span>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <span class="day">Viernes</span>
+                        <span class="day-number">12</span>
+                    </div>
+
+                </div>
+                <div class="time-left">
+                    Faltan: 2 días, 7 horas y 34 minutos
+                </div>
+            </div>
+        </div>
+
+        <div class="last-events">
+            <h2 class="title">EVENTOS RECIENTES</h2>
+        </div>
+    </ng-template>
+
+    <div class="promotions" *ngIf="battleStarted">
+        <h2 class="title">PROMOS ACTIVAS</h2>
+    </div>
+
+
+
 </div>
