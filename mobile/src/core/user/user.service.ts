@@ -49,4 +49,10 @@ export class UserService {
       .post(API.bar + 'users/', data, this.options)
       .map(res => res.json());
   }
+
+  sendPrize(data: any) {
+    return this.http
+      .post(API.prize + 'send', data, this.options)
+      .map(res => res.json());
+  }
 }

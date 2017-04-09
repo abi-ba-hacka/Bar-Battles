@@ -91,7 +91,14 @@ exports.data = {
     start: 1491955200000,
     end: 1492041600000,
     points: 0,
-    log: [], //BattleAction
+    log: [{ // BattleAction
+      user: '1',
+      receiver: '2',
+      action: 'user_gift', // user_gift, bar_discount, beer_scan
+      message: '',
+      bar: '1',
+      beer: '1'
+    }],
   }],
 
   // PRIZES

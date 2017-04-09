@@ -18,26 +18,6 @@ app.get('/', function (req, res) {
   res.json({status: 200})
 })
 
-app.post('/:model/create/', function (req, res) {
-  db.create(req, res);
-})
-
-app.post('/:model/:id', function (req, res) {
-  db.update(req, res);
-})
-
-app.get('/:model/', function (req, res) {
-  db.get(req, res);
-})
-
-app.get('/:model/:id', function (req, res) {
-  db.get(req, res);
-})
-
-app.post('/:model/remove/', function (req, res) {
-  db.remove(req, res);
-})
-
 // QR
 app.post('/redeem/', function (req, res) {
   qr.redeem(req, res);
@@ -60,5 +40,26 @@ app.get('/bar/users/', function (req, res) {
 app.post('/prize/send', function (req, res) {
   prize.send(req, res);
 })
+
+app.post('/:model/create/', function (req, res) {
+  db.create(req, res);
+})
+
+app.post('/:model/:id', function (req, res) {
+  db.update(req, res);
+})
+
+app.get('/:model/', function (req, res) {
+  db.get(req, res);
+})
+
+app.get('/:model/:id', function (req, res) {
+  db.get(req, res);
+})
+
+app.post('/:model/remove/', function (req, res) {
+  db.remove(req, res);
+})
+
 
 app.listen(3000)
