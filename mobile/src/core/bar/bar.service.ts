@@ -23,4 +23,12 @@ export class BarService {
       .map(res => res.json());
   }
 
+  getBars(ids: string[]) {
+    return Observable.forkJoin(
+      ids.map(id => {
+        return this.getBar(id);
+      })
+    )
+  }
+
 }

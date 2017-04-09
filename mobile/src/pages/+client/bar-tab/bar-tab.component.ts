@@ -22,6 +22,7 @@ export class BarTabComponent implements OnInit{
 
     public user: any = {}; //User;
     public bar: any = {}; //Bar;
+    public rivalBar: any = {}; //Bar;
     public battle: any; //Battle;
 
     constructor(private store: Store<any>) {
@@ -29,15 +30,13 @@ export class BarTabComponent implements OnInit{
     }
 
     ngOnInit() {
-      this.store.map(s => s.userState.user).subscribe(user => {
-        this.user = user;
-      })
-      this.store.map(s => s.barState.bars
-        .find(bar => bar.id === s.barState.activeBar)).subscribe(bar => {
-        this.bar = bar;
-      })
-      this.store.map(s => s.battleState.battle).subscribe(battle => {
-        this.battle = battle;
-      })
+      this.store.map(s => s).subscribe(s => {
+        this.user = s.userState.user;
+        this.bar = s.barState.bars.find(bar => bar.id === s.barState.activeBar);
+        this.battle = s.battleState.battle;
+        if (s.battleState.battle) {
+          this.rivalBar = s.battleState.battle.bars.find(id => id != s.barState.activeBar);
+        }
+      });
     }
 }
