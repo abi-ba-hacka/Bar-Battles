@@ -1,13 +1,25 @@
-RedeemComponent
-<div *ngIf="user">
+<ion-header>
+    <ion-navbar>
+      <ion-title>Canjear puntos</ion-title>
+    </ion-navbar>
+</ion-header>
+<!--div *ngIf="user">
     {{user.points}}
-</div>
+</div-->
 <ion-content class="card-background-page">
 
   <ion-card>
     <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/Patagonia-24-7-1000x1467_1024x1024.jpg?v=1483734202"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
+    <div class="card-info">
+        <div class="card-title">Patagonia 24.7</div>
+        <div class="card-subtitle">
+            Una nueva variedad de Patagonia, creada en la cerve-
+            cería de Circuito Chico, justamente, en el KM 24,7.
+        </div>
+        <button ion-button clear>
+            CANJEAR PUNTOS
+        </button>
+    </div>
   </ion-card>
 
   <ion-card>
