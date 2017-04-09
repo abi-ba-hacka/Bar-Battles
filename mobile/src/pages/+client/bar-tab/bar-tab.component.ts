@@ -10,15 +10,6 @@ import { Bar } from '../../core/bar/bar.model';
 })
 
 export class BarTabComponent implements OnInit{
-    private battleStarted: boolean = true;
-
-    private barName: string = 'Refugio Callao y Viamonte';
-    private barLocation: string = 'Callao y Viamonte, Buenos Aires';
-    private barImage: string = 'http://i.imgur.com/w3QXWgc.png';
-
-    private opponentBarName: string = 'Circuito Chico Km 24.7';
-    private opponentBarLocation: string = 'Callao y Viamonte, Buenos Aires';
-    private opponentBarImage: string = 'http://i.imgur.com/oRhjO6O.png';
 
     public user: any = {}; //User;
     public bar: any = {}; //Bar;
