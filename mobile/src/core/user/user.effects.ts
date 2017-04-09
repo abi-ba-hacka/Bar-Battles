@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 import { BarActions } from '../bar/bar.actions';
 import { Bar } from '../bar/bar.model';
 import { PrizeActions } from '../prize/prize.actions';
+import { BattleActions } from '../battle/battle.actions';
 
 @Injectable()
 export class UserEffects {
@@ -71,6 +72,7 @@ export class UserEffects {
             new UserActions.EditUserSuccess(data.user),
             new UserActions.GetUsersSuccess(data.receiver),
             new PrizeActions.UpdatePrizeSuccess(data.prize),
+            new BattleActions.GetBattleSuccess(data.battle),
             // TODO: updateBattle (me devuleve data.battle tambien)
           ])
         })

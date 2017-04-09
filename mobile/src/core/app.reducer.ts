@@ -10,11 +10,13 @@ import {environment} from "../environments/environment";
 import { user } from './user/user.reducers';
 import { bar } from './bar/bar.reducers';
 import { prize } from './prize/prize.reducers';
+import { battle } from './battle/battle.reducers';
 
 const AppReducers = {
   userState: user,
   barState: bar,
-  prizeState: prize
+  prizeState: prize,
+  battleState: battle
 };
 const developmentReducer = compose(
     storeFreeze, storeLogger(), combineReducers
