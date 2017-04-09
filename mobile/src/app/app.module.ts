@@ -26,6 +26,7 @@ import { LoginPageComponent } from '../pages/+auth/+login/login.component';
 import { ClientPageComponent } from '../pages/+client/client.component';
 import { ProfileTabComponent } from '../pages/+client/profile-tab/profile-tab.component';
 import { BarTabComponent } from '../pages/+client/bar-tab/bar-tab.component';
+import { RedeemComponent } from '../pages/+client/redeem/redeem.component';
 
 import { AdminPageComponent } from '../pages/+admin/admin.component';
 import { BarStatsPageComponent } from '../pages/+admin/bar-stats/bar-stats.component';
@@ -43,6 +44,7 @@ import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-genera
     ClientPageComponent,
     ProfileTabComponent,
     BarTabComponent,
+    RedeemComponent,
 
     AdminPageComponent,
     BarStatsPageComponent,
@@ -71,6 +73,7 @@ import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-genera
     ClientPageComponent,
     ProfileTabComponent,
     BarTabComponent,
+    RedeemComponent,
 
     AdminPageComponent,
     BarStatsPageComponent,
