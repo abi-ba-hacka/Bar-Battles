@@ -16,6 +16,7 @@ export class ProfileTabComponent implements OnInit {
 
     public user: any = {}; //User;
     public bar: any = {}; //Bar;
+    public activeBar: any = {}; //Bar
 
     constructor(public navCtrl: NavController,
                 private store: Store<any>) {
@@ -29,6 +30,10 @@ export class ProfileTabComponent implements OnInit {
       this.store.map(s => s.barState.bars.find(bar => bar.id === s.barState.activeBar)).subscribe(bar => {
         this.bar = bar;
       })
+      this.store.subscribe(s => {
+        this.activeBar = s.barState.activeBar;
+      })
+
     }
 
     redeemPoints() {

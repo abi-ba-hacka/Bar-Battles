@@ -113,7 +113,11 @@ export class LoginPageComponent {
       this.menuCtrl.enable(false, 'admin-menu');
       this.menuCtrl.enable(false, 'client-menu');
   }
+/*
+// loginFacebook. nav to perfil
+cambiar cervezas canjeadas por regaladas
+desharcodear bar perf
 
-
+*/
 
 }

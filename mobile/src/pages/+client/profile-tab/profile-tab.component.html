@@ -2,15 +2,19 @@
 
     <div class="content" *ngIf="user">
         <div class="avatar round">
-            <img src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p160x160/13697031_731916956911195_2107886986825962297_n.jpg?oh=d56d7ea9cd44e20634c497f2150a097b&oe=5989210B">
+            <img src="{{user.image}}">
         </div>
 
         <h3 class="name">{{user.name || user.facebook.name}}</h3>
         <span class="bar-location" *ngIf="bar">
             <!-- if active bar -->
-            <ion-icon name='md-pin'></ion-icon>{{bar.name}}
+            <div *ngIf="activeBar">
+              <ion-icon name='md-pin'></ion-icon>{{bar.name}}
+            </div>
             <!-- else -->
-            <ion-icon name='md-pin'></ion-icon>no active bar
+            <div *ngIf="!activeBar">
+              <ion-icon name='md-pin'></ion-icon>no active bar
+            </div>
         </span>
 
         <ion-list class="points">
@@ -24,7 +28,7 @@
                 </h1>
             </ion-item>
             <ion-item class="point">
-                <span class="desc">Cervezas canjeadas</span>
+                <span class="desc">Cervezas regaladas</span>
                 <h1 class="number">
                     {{user.prizes.length}}
                     <button ion-button>

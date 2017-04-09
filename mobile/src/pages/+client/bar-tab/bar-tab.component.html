@@ -1,27 +1,27 @@
 <div class="bar-tab">
     <!-- show when you have bar -->
-    <ng-template [ngIf]="false">
+    <ng-template [ngIf]="bar">
         <div class="avatars">
             <div class="avatar round" [class.double]="battleStarted">
-                <img [src]="barImage">
+                <img [src]="bar.image">
             </div>
-            <div class="avatar round" [class.double]="battleStarted" *ngIf="battleStarted">
-                <img [src]="opponentBarImage">
+            <div class="avatar round" [class.double]="battleStarted" *ngIf="rivalBar.image">
+                <img [src]="rivalBar.image">
             </div>
         </div>
 
         <h3 class="name">
-            {{barName}}
+            {{bar.name}}
             <!-- if bar.type == refugee barName then return first 2 words of barName -->
             <template [ngIf]="battleStarted">
-                y {{opponentBarName}}
+                y {{rivalBar.name}}
             </template>
         </h3>
         <span *ngIf="!battleStarted" class="bar-location">
-            <ion-icon name='md-pin'></ion-icon>{{barLocation}}
+            <ion-icon name='md-pin'></ion-icon>{{bar.location}}
         </span>
         <span *ngIf="battleStarted" class="bar-info">
-            Interactuá con el bar amigo de {{opponentBarName}} escaneando
+            Interactuá con el bar amigo de {{rivalBar.name}} escaneando
             los códigos QR de los tickets.
         </span>
 
@@ -31,11 +31,11 @@
                 <div class="bar-info">
                     <div class="bars">
                         <div class="bar">
-                            <img [src]="barImage">
+                            <img [src]="bar.image">
                             <span>{{barName}}</span>
                         </div>
-                        <div class="bar">
-                            <img [src]="opponentBarImage">
+                        <div class="bar" *ngIf="rivalBar.image">
+                            <img [src]="rivalBar.image">
                             <span>{{opponentBarName}}</span>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 <div class="event" *ngFor="let i of [1,2]" [class.gold]="false">
                     <ion-chip color="grey" *ngIf="true">
                       <ion-avatar>
-                          <img [src]="barImage">
+                          <img [src]="bar.image">
                       </ion-avatar>
                       <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
                       <ion-label class="time">11:23</ion-label>
@@ -90,7 +90,7 @@
                     <!-- only show when event != special -->
                     <ion-chip color="grey" *ngIf="false">
                       <ion-avatar>
-                          <img [src]="barImage">
+                          <img [src]="bar.image">
                       </ion-avatar>
                       <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
                       <ion-label class="time">11:23</ion-label>
@@ -106,7 +106,7 @@
     </ng-template>
 
     <!-- show when you dont have bar -->
-    <div class="no-bar" *ngIf="true">
+    <div class="no-bar" *ngIf="!bar">
         <div class="content">
             <img src="assets/img/qrcode-scan.png" alt="">
             <h2>No escaneaste ningún código</h2>
@@ -123,5 +123,6 @@
 
     </div>
 
+<button ion-button (click)="toggleBattle()">Battle</button>
 
 </div>

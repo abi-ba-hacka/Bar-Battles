@@ -15,6 +15,7 @@ export class BarTabComponent implements OnInit{
     public bar: any = {}; //Bar;
     public rivalBar: any = {}; //Bar;
     public battle: any; //Battle;
+    public battleStarted: boolean = false;
 
     @Output() scan: EventEmitter<any> = new EventEmitter();
     constructor(private store: Store<any>) {
@@ -27,8 +28,17 @@ export class BarTabComponent implements OnInit{
         this.bar = s.barState.bars.find(bar => bar.id === s.barState.activeBar);
         this.battle = s.battleState.battle;
         if (s.battleState.battle) {
-          this.rivalBar = s.battleState.battle.bars.find(id => id != s.barState.activeBar);
+          this.rivalBar = s.barState.bars.filter(bar => bar.id !== s.barState.activeBar)[0];
+          console.log('this.rivalBar');
+          console.log(this.rivalBar);
+          this.battleStarted = true;
+        } else {
+          this.battleStarted = false;
         }
       });
+    }
+
+    toggleBattle() {
+      this.battleStarted = !this.battleStarted;
     }
 }

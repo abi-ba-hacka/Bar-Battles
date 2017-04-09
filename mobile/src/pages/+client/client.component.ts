@@ -30,20 +30,12 @@ export class ClientPageComponent {
 
   ionViewCanEnter(){
     console.log('entro');
-    NativeStorage.getItem('user')
-    .then((data) => {
-      this.user = {
-        name: data.name,
-        gender: data.gender,
-        picture: data.picture,
-        id: data.id
-      };
-        this.userReady = true;
-    }, (error) => {
-      console.log('no user logged');
-      console.log(error); // no user logged
-      this.store.dispatch(new UserActions.GetUser('1'))
-    });
+    this.store.map(s => s.userState).take(1).subscribe(userState => {
+      if (!userState.user) {
+        this.store.dispatch(new UserActions.GetUser('1'))
+      }
+    })
+
   }
 
   ionViewDidEnter() {
@@ -55,9 +47,13 @@ export class ClientPageComponent {
     BarcodeScanner.scan()
       .then((result) => {
       if (!result.cancelled) {
+        let id: any;
         const barcodeData = new BarcodeData(result.text, result.format);
-        // TODO Should be
-        // this.decryptedText = EncriptionService.decrypt(barcodeData.text);
+        this.store.take(1).subscribe(store => {
+          id = store.userState.user.id;
+        })
+        this.store.dispatch(new UserActions.SendQR({id: id, qrcode: result.text}))
+
       }
       })
       .catch((err) => {

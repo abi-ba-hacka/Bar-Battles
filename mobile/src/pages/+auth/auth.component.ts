@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Facebook, NativeStorage } from 'ionic-native';
+import { Facebook } from 'ionic-native';
 
 import { AdminPageComponent } from '../+admin/admin.component';
 import { ClientPageComponent } from '../+client/client.component';
+
+import { Store } from "@ngrx/store";
+import { UserActions } from '../../core/user/user.actions';
 
 @Component({
   selector: 'auth-root',
@@ -13,7 +16,10 @@ export class AuthPageComponent {
 
   FB_APP_ID: number = 1858455974413636;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    private store: Store<any>,
+  ) {
     Facebook.browserInit(this.FB_APP_ID, "v2.8");
   }
 
@@ -40,26 +46,23 @@ export class AuthPageComponent {
 
     Facebook.login(permissions)
     .then((response) => {
-      let userId = response.authResponse.userID;
+      let facebookId = response.authResponse.userID;
       let params = new Array();
 
       //Getting name and gender properties
       Facebook.api("/me?fields=name,gender", params)
       .then((user) => {
-        user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
+        user.picture = "https://graph.facebook.com/" + facebookId + "/picture?type=large";
         //now we have the users info, let's save it in the NativeStorage
-        NativeStorage.setItem('user',
-        {
-          name: user.name,
-          gender: user.gender,
-          picture: user.picture,
-          id: userId
+        this.store.dispatch(new UserActions.UserLogin(facebookId));
+
+        this.store.map(store => store.userState).skip(1).take(1).subscribe(userState => {
+          if (userState.user) {
+            this.navCtrl.push(ClientPageComponent);
+          }
         })
-        .then(() =>{
-          this.navCtrl.push(ClientPageComponent);
-        }, (error) => {
-          console.log(error);
-        })
+        //borrar y editar ClientPage
+
       })
     }, (error) => {
       console.log(error);
