@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
 import { Store } from '@ngrx/store';
 
 import { User } from '../../core/user/user.model';
 import { Bar } from '../../core/bar/bar.model';
+
+import { RedeemComponent } from '../redeem/redeem.component';
 
 @Component({
   selector: 'profile-tab',
@@ -14,7 +17,8 @@ export class ProfileTabComponent implements OnInit {
     public user: any = {}; //User;
     public bar: any = {}; //Bar;
 
-    constructor(private store: Store<any>) {
+    constructor(public navCtrl: NavController,
+                private store: Store<any>) {
 
     }
 
@@ -28,6 +32,6 @@ export class ProfileTabComponent implements OnInit {
     }
 
     redeemPoints() {
-        console.log("REDEEM POINTS");
+        this.navCtrl.push(RedeemComponent);
     }
 }
