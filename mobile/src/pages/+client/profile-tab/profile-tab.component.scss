@@ -3,7 +3,8 @@ profile-tab {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100%;
+        min-height: 100%;
+        padding: 20px;
     }
 
     .content {
@@ -13,8 +14,9 @@ profile-tab {
         flex: 1;
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            min-width: 100px;
+            min-height: 100px;
+            margin-top: 10px;
         }
         .name {
             font-size: 15px;
@@ -31,15 +33,57 @@ profile-tab {
 
         ion-list.points {
             width: 100%;
-            ion-item.point .item-inner {
-                border-color: $color-grey;
+            margin-top: 13px;
+            border: 1px solid rgba(223, 172, 71, 0.18);
+            border-radius: 5px;
+            background: radial-gradient(circle, rgba(184,115,51,0.38) 0%, rgba(184,115,51,0.2) 68.58%, #523317 100%);
+
+            ion-item.point {
+                display: flex;
+                padding: 10px 35px;
+                color: $color-light;
+                border-bottom: 1px solid $color-grey;
+                .item-inner {
+                    border: none;
+                }
+
+                .number, .desc {
+                    margin: 0;
+                }
+                .number {
+                    display: flex;
+                    align-items: center;
+                    font-size: 50px;
+                    font-weight: 900;
+                    button {
+                        border-radius: 100%;
+                        width: 30px;
+                        height: 30px;
+                        background: $color-grey;
+                        margin-left: 10px;
+                    }
+                    ion-icon {
+                        font-size: 15px;
+                    }
+                }
+                .desc {
+                    font-size: 20px;
+                    font-weight: 300;
+                    max-width: 120px;
+                }
+
             }
+        }
+
+        ion-list ion-item.item {
+
         }
     }
 
     .footer {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         .share {
             background: $color-grey;
         }

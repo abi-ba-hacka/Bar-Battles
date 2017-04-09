@@ -12,24 +12,36 @@
 
         <ion-list class="points">
             <ion-item class="point">
-                <h1 class="number">100</h1>
-                <span class="desc">Puntos acumulados</span>
+                <span item-left class="desc">Puntos acumulados</span>
+                <h1 item-right class="number">
+                    100
+                    <button ion-button>
+                        <ion-icon name="md-code"></ion-icon>
+                    </button>
+                </h1>
             </ion-item>
             <ion-item class="point">
-                <h1 class="number">100</h1>
-                <span class="desc">Cervezas canjeadas</span>
+                <span item-left class="desc">Cervezas canjeadas</span>
+                <h1 item-right class="number">
+                    100
+                    <button ion-button>
+                        <ion-icon name="md-beer"></ion-icon>
+                    </button>
+                </h1>
             </ion-item>
             <ion-item class="point">
-                <h1 class="number">IPA</h1>
-                <span class="desc">Cerveza favorita</span>
+                <span item-left class="desc">Cerveza favorita</span>
+                <h1 item-right class="number">
+                    IPA
+                    <button ion-button>
+                        <ion-icon name="md-star"></ion-icon>
+                    </button>
+                </h1>
             </ion-item>
         </ion-list>
     </div>
     <div class="footer">
-        <button ion-button (click)="doFbLogin()">CANJEAR PUNTOS</button>
-        <button class="share" ion-button (click)="shareOnFacebook()" color="light" clear>
-            COMPARTIR EN FACEBOOK
-        </button>
+        <button ion-button (click)="redeemPoints()">CANJEAR PUNTOS</button>
     </div>
 
 </div>
