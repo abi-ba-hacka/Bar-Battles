@@ -1,11 +1,11 @@
 <div class="bar-tab">
     <!-- show when you have bar -->
     <ng-template [ngIf]="bar">
-        <div class="avatars">
+        <div class="avatars" (click)="toggleBattle()">
             <div class="avatar round" [class.double]="battleStarted">
                 <img [src]="bar.image">
             </div>
-            <div class="avatar round" [class.double]="battleStarted" *ngIf="rivalBar.image">
+            <div class="avatar round" [class.double]="battleStarted" *ngIf="battleStarted">
                 <img [src]="rivalBar.image">
             </div>
         </div>
@@ -122,7 +122,5 @@
         </div>
 
     </div>
-
-<button ion-button *ngIf="bar" (click)="toggleBattle()">Battle</button>
 
 </div>
