@@ -13,6 +13,7 @@ export class Bar {
   activeBattle: Battle;
   prizes: Prize[];
   promotions: any[];
+  location: string;
 
   constructor(data: any) {
     this.users = data.users;
@@ -24,5 +25,6 @@ export class Bar {
     this.activeBattle = data.activeBattle;
     this.prizes = data.prizes;
     this.promotions = data.promotions;
+    this.location = data.location;
   }
 }
