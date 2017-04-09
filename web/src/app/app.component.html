@@ -1,10 +1,55 @@
-<div *ngIf="!connected">
-  <h1>My id - {{mypeerid}}</h1>
-  <p>Code to Connect: <input type="text" [(ngModel)]="anotherid"></p>
-  <br>
-  <button (click)="videoconnect()">Start VideoChat</button>
-</div>
-<video #myvideo></video>
-<div class="overlay">
-  <p>OVERLAY</p>
+<div class="app">
+
+    <video #myvideo></video>
+    <div class="overlay">
+
+        <div class="login" *ngIf="!connected">
+            <h1>My id - {{mypeerid}}</h1>
+            <p>Code to Connect: <input type="text" [(ngModel)]="anotherid"></p>
+            <br>
+            <button (click)="videoconnect()">Start VideoChat</button>
+        </div>
+
+        <div *ngIf="connected" class="ui">
+
+            <div class="last-events">
+                <div class="event" *ngFor="let i of [1,2,3,4,5]">
+                    <div class="avatar">
+                        <img src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p32x32/13697031_731916956911195_2107886986825962297_n.jpg?oh=7143c43eec679c54a63a51ba5cc79ff7&oe=595D0095">
+                    </div>
+                    <span class="desc">Pedro Martinez canjeo 75 puntos!</span>
+                    <span class="time">1:44</span>
+                </div>
+                <div class="event gold">
+                    <span class="desc">Refugio Callao habilito 2x1 en Weisse!</span>
+                </div>
+            </div>
+
+
+            <div class="bars">
+                <div class="bar">
+                    <div class="counter">
+                        <span class="number">62</span>
+                        <span>Cervezas</span>
+                    </div>
+                    <div class="bar-name">
+                        Refugio Callao y Viamonte
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="counter">
+                        <span class="number">87</span>
+                        <span>Cervezas</span>
+                    </div>
+                    <div class="bar-name">
+                        Circuito Chico Km 24.7
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
 </div>
