@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { UserService } from './user.service';
 import { BarActions } from '../bar/bar.actions';
 import { Bar } from '../bar/bar.model';
+import { PrizeActions } from '../prize/prize.actions';
 
 @Injectable()
 export class UserEffects {
@@ -58,6 +59,22 @@ export class UserEffects {
         .map((users: User[]) => new UserActions.GetUsersSuccess(users))
         .catch((e) => of(new UserActions.GetUsersFail(e)))
     );
+
+  @Effect() sendPrize$ = this.actions$
+    .ofType(UserActions.Types.SEND_PRIZE)
+    .mergeMap(action =>
+      this.userService.sendPrize(action.payload)
+        .mergeMap((data: any) => {
+          console.log('data');
+          console.log(data);
+          return Observable.from([
+            new UserActions.EditUserSuccess(data.user),
+            new UserActions.GetUsersSuccess(data.receiver),
+            new PrizeActions.UpdatePrizeSuccess(data.prize),
+            // TODO: updateBattle (me devuleve data.battle tambien)
+          ])
+        })
+    )
 
 
 }

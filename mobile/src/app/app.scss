@@ -30,6 +30,10 @@
     overflow: hidden;
 }
 
+.fill {
+    flex: 1;
+}
+
 
 .splashscreen {
     height: 100%;
@@ -51,10 +55,17 @@ ion-header.header-md {
     }
     ion-segment ion-segment-button.segment-button {
         color: $color-light;
+        height: 5.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 ion-toolbar {
+    &.toolbar-md {
+        padding-bottom: 0;
+    }
     .toolbar-content {
         display: flex;
         align-items: center;
