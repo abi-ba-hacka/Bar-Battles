@@ -74,7 +74,7 @@ exports.redeem = function(req, res) {
       log: battle.log.concat({
         user: user.id,
         action: 'beer_scan',
-        bar: activeBar.id,
+        bar: bar.id,
         beer: beer.id
       })
     }));

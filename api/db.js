@@ -58,10 +58,11 @@ exports.data = {
   // BARS
   bars: [{
     id: '1',
-    name: 'patagonia bsas',
+    name: 'Refugio Callao y Viamonte',
     type: 'refugio',
+    location: 'Callao y Viamonte, Buenos Aires',
     points: 0,
-    image: '',
+    image: 'http://i.imgur.com/w3QXWgc.png',
     activeBattle: '1',
     battles: ['1'],
     prizes: [],
@@ -69,10 +70,11 @@ exports.data = {
     promotions: []
   }, {
     id: '2',
-    name: 'patagonia bariloche',
+    name: 'Circuito Chico Km 24.7',
     type: '',
+    location: 'Callao y Viamonte, Buenos Aires',
     points: 4,
-    image: '',
+    image: 'http://i.imgur.com/oRhjO6O.png',
     activeBattle: '1',
     battles: ['1'],
     prizes: [],
@@ -93,6 +95,7 @@ exports.data = {
 
   // BATTLES
   battles: [{
+    id: '1',
     bars: ['1','2'],
     start: 1491955200000,
     end: 1492041600000,
