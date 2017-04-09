@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
     this.peer = new Peer('piono-beer', {key: 'lwjd5qra8257b9'});
     setTimeout(() => {
       this.mypeerid = this.peer.id;
+    },3000);
 
-      // TODO REMOVE AUTOCONNECT TO LUCHO
-      /*this.anotherid = 'lucho-beer';
-      this.videoconnect();*/
-      ///////
+    setTimeout(() => {
+      this.anotherid = 'piono-beer';
+      this.videoconnect();
     },3000);
 
     this.peer.on('connection', (conn) => {
