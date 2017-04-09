@@ -1,10 +1,19 @@
-<div *ngIf="!connected">
-  <h1>My id - {{mypeerid}}</h1>
-  <p>Code to Connect: <input type="text" [(ngModel)]="anotherid"></p>
-  <br>
-  <button (click)="videoconnect()">Start VideoChat</button>
-</div>
-<video #myvideo></video>
-<div class="overlay">
-  <p>OVERLAY</p>
+<div class="app">
+
+    <video #myvideo></video>
+    <div class="overlay">
+
+        <div class="login" *ngIf="!connected">
+            <h1>My id - {{mypeerid}}</h1>
+            <p>Code to Connect: <input type="text" [(ngModel)]="anotherid"></p>
+            <br>
+            <button (click)="videoconnect()">Start VideoChat</button>
+        </div>
+
+        <p *ngIf="connected">
+            OVERLAY
+        </p>
+
+    </div>
+
 </div>
