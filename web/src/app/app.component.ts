@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let video = this.myVideo.nativeElement;
-    this.peer = new Peer('piono-beer', {key: 'lwjd5qra8257b9'});
+    this.peer = new Peer( {key: 'lwjd5qra8257b9'});
     setTimeout(() => {
       this.mypeerid = this.peer.id;
     },3000);
