@@ -1,31 +1,68 @@
-RedeemComponent
-<div *ngIf="user">
+<ion-header>
+    <ion-navbar>
+      <ion-title>Canjear puntos</ion-title>
+    </ion-navbar>
+</ion-header>
+<!--div *ngIf="user">
     {{user.points}}
-</div>
+</div-->
 <ion-content class="card-background-page">
 
   <ion-card>
     <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/Patagonia-24-7-1000x1467_1024x1024.jpg?v=1483734202"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
+    <div class="card-info">
+        <div class="card-title">Patagonia 24.7</div>
+        <div class="card-subtitle">
+            Una nueva variedad de Patagonia, creada en la cerve-
+            cería de Circuito Chico, justamente, en el KM 24,7.
+        </div>
+        <button ion-button clear>
+            CANJEAR PUNTOS
+        </button>
+    </div>
   </ion-card>
 
   <ion-card>
     <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/vaso-patagonia-x6-1000x1467-300_1024x1024.jpg?v=1483640612 "/>
-    <div class="card-title">Amsterdam</div>
-    <div class="card-subtitle">64 Listings</div>
+    <div class="card-info">
+        <div class="card-title">Vaso grande curvo</div>
+        <div class="card-subtitle">
+            Porque cada estilo de cerveza necesita su vaso, Patagonia
+            nos ofrece los vasos correctos para la cerveza indicada.
+        </div>
+        <button ion-button clear>
+            CANJEAR PUNTOS
+        </button>
+    </div>
   </ion-card>
 
   <ion-card>
     <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/gorro-patagonia-01-1000x1467_2_1024x1024.jpg?v=1482938596"/>
-    <div class="card-title">San Francisco</div>
-    <div class="card-subtitle">72 Listings</div>
+    <div class="card-info">
+        <div class="card-title">Gorra Patagonia Verde</div>
+        <div class="card-subtitle">
+            Para llevar todo el estilo de la marca con vos, las gorras
+            Patagonia son un gran complemento para tu pack.
+        </div>
+        <button ion-button clear>
+            CANJEAR PUNTOS
+        </button>
+    </div>
   </ion-card>
 
   <ion-card>
     <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/beerpacks-patagonia-growler-1000x1467-02_1024x1024.jpg?v=1482427396"/>
-    <div class="card-title">Madison</div>
-    <div class="card-subtitle">28 Listings</div>
+    <div class="card-info">
+        <div class="card-title">Growler Patagonia + carga</div>
+        <div class="card-subtitle">
+            En BevyBar te traemos el exclusivo Growler de Patagonia,
+            para que puedas cargar cuantas veces quieras en los refugios y
+            llevarte la mejor cerveza tirada a tu casa. 
+        </div>
+        <button ion-button clear>
+            CANJEAR PUNTOS
+        </button>
+    </div>
   </ion-card>
 
 </ion-content>
