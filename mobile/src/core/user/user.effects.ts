@@ -20,15 +20,15 @@ export class UserEffects {
 
   }
 
-/* GET USER
+
   @Effect() getUser$ = this.actions$
-    .ofType(UserActions.Types.USER_LOGIN)
+    .ofType(UserActions.Types.GET_USER)
     .switchMap(action =>
       this.userService.getUser(action.payload)
-        .map((user: User) => new UserActions.UserLoginSuccess(new User(user)))
-        .catch((e) => of(new UserActions.UserLoginFail(e)))
+        .map((user: User) => new UserActions.GetUserSuccess(new User(user)))
+        .catch((e) => of(new UserActions.GetUserFail(e)))
     );
-    */
+
   @Effect() getUserByFacebookId$ = this.actions$
     .ofType(UserActions.Types.USER_LOGIN)
     .switchMap(action =>
