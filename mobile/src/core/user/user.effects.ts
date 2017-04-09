@@ -56,6 +56,7 @@ export class UserEffects {
             new UserActions.EditUserSuccess(data.user),
             new BarActions.SetCurrentBarId(data.bar.id),
             new BarActions.GetBarSuccess(data.bar),
+            new BattleActions.GetBattleSuccess(data.battle),
             // TODO: rest of actions
           ])
         })
@@ -82,7 +83,6 @@ export class UserEffects {
             new UserActions.GetUsersSuccess(data.receiver),
             new PrizeActions.UpdatePrizeSuccess(data.prize),
             new BattleActions.GetBattleSuccess(data.battle),
-            // TODO: updateBattle (me devuleve data.battle tambien)
           ])
         })
     )
