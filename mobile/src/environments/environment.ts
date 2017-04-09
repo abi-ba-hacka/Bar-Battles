@@ -14,6 +14,7 @@ export const API = {
   bar: 'https://6aed40e1.ngrok.io/bar/',
   beers: 'https://6aed40e1.ngrok.io/beers/',
   prizes: 'https://6aed40e1.ngrok.io/prizes/',
+  prize: 'https://6aed40e1.ngrok.io/prize/',
   battles: 'https://6aed40e1.ngrok.io/battles/',
   redeem: 'https://6aed40e1.ngrok.io/redeem/'
 }

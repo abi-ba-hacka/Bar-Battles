@@ -9,10 +9,12 @@ import {environment} from "../environments/environment";
 
 import { user } from './user/user.reducers';
 import { bar } from './bar/bar.reducers';
+import { prize } from './prize/prize.reducers';
 
 const AppReducers = {
   userState: user,
   barState: bar,
+  prizeState: prize
 };
 const developmentReducer = compose(
     storeFreeze, storeLogger(), combineReducers

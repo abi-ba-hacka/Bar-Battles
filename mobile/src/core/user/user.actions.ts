@@ -21,6 +21,9 @@ export namespace UserActions {
     GET_USERS: type('[User] Get Users'),
     GET_USERS_SUCCESS: type('[User] Get Users Success'),
     GET_USERS_FAIL: type('[User] Get Users Fail'),
+    SEND_PRIZE: type ('[User] Send Prize'),
+    SEND_PRIZE_SUCCESS: type ('[User] Send Prize Success'),
+    SEND_PRIZE_FAIL: type ('[User] Send Prize Fail'),
 
 
   }
@@ -115,6 +118,29 @@ export namespace UserActions {
     constructor(public payload: any) { }
   }
 
+  export class SendPrize implements Action {
+    type = Types.SEND_PRIZE;
+
+    // {userId, receiverId, prizeId}
+    constructor(public payload: any) { }
+  }
+
+  export class SendPrizeSuccess implements Action {
+    type = Types.SEND_PRIZE_SUCCESS;
+
+    constructor(public payload: any) { }
+  }
+
+  export class SendPrizeFail implements Action {
+    type = Types.SEND_PRIZE_FAIL;
+
+    constructor(public payload: any) { }
+  }
+
+
+
+
+
 
 
 
@@ -135,5 +161,8 @@ export namespace UserActions {
     | GetUsers
     | GetUsersSuccess
     | GetUsersFail
+    | SendPrize
+    | SendPrizeSuccess
+    | SendPrizeFail
 
 }

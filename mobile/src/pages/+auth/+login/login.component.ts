@@ -61,6 +61,16 @@ export class LoginPageComponent {
     this.store.dispatch(new UserActions.GetUsers({badId: barId, userId: userId}))
   }
 
+  sendGiftTest() {
+    let giftData = {
+      userId: '1',
+      receiverId: '4',
+      prizeId: '1'
+    }
+
+    this.store.dispatch(new UserActions.SendPrize(giftData));
+  }
+
   doFbLogin(){
     let permissions = new Array();
     //the permissions your facebook app needs from the user
