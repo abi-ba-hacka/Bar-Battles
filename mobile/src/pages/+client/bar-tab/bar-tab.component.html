@@ -23,53 +23,70 @@
         los códigos QR de los tickets.
     </span>
 
-    <ng-template [ngIf]="!battleStarted">
-        <div class="next-battle">
-            <h2 class="title">PRÓXIMO DUELO</h2>
-            <div class="info">
-                <div class="bar-info">
-                    <div class="bars">
-                        <div class="bar">
-                            <img [src]="barImage">
-                            <span>{{barName}}</span>
-                        </div>
-                        <div class="bar">
-                            <img [src]="opponentBarImage">
-                            <span>{{opponentBarName}}</span>
-                        </div>
+    <div class="next-battle" *ngIf="!battleStarted">
+        <h2 class="title">PRÓXIMO DUELO</h2>
+        <div class="info">
+            <div class="bar-info">
+                <div class="bars">
+                    <div class="bar">
+                        <img [src]="barImage">
+                        <span>{{barName}}</span>
                     </div>
-                    <div class="date">
-                        <span class="day">Viernes</span>
-                        <span class="day-number">12</span>
+                    <div class="bar">
+                        <img [src]="opponentBarImage">
+                        <span>{{opponentBarName}}</span>
                     </div>
+                </div>
+                <div class="date">
+                    <span class="day">Viernes</span>
+                    <span class="day-number">12</span>
+                </div>
 
-                </div>
-                <div class="time-left">
-                    Faltan: 2 días, 7 horas y 34 minutos
-                </div>
+            </div>
+            <div class="time-left">
+                Faltan: 2 días, 7 horas y 34 minutos
             </div>
         </div>
-
-        <div class="last-events">
-            <h2 class="title">EVENTOS RECIENTES</h2>
-            <div class="events">
-                <div class="event" *ngFor="let i of [1,2,3,4,5]">
-                    <ion-chip color="grey">
-                      <ion-avatar>
-                          <img [src]="barImage">
-                      </ion-avatar>
-                      <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
-                      <ion-label class="time">11:23</ion-label>
-                    </ion-chip>
-                </div>
-            </div>
-        </div>
-    </ng-template>
+    </div>
 
     <div class="promotions" *ngIf="battleStarted">
         <h2 class="title">PROMOS ACTIVAS</h2>
     </div>
 
+    <div class="last-events">
+        <h2 class="title">EVENTOS RECIENTES</h2>
+        <div class="events">
+            <div class="event" *ngFor="let i of [1,2]" [class.gold]="false">
+                <ion-chip color="grey" *ngIf="true">
+                  <ion-avatar>
+                      <img [src]="barImage">
+                  </ion-avatar>
+                  <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                  <ion-label class="time">11:23</ion-label>
+                </ion-chip>
+                <div class="flotante" *ngIf="false">
+                    <span class="time">1:34 ·</span>
+                    <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                </div>
+            </div>
+            <!-- class.gold = event = special or something -->
+            <div class="event" [class.gold]="true">
+                <!-- only show when event != special -->
+                <ion-chip color="grey" *ngIf="false">
+                  <ion-avatar>
+                      <img [src]="barImage">
+                  </ion-avatar>
+                  <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                  <ion-label class="time">11:23</ion-label>
+                </ion-chip>
+                <!-- show when event = special -->
+                <div class="flotante" *ngIf="true">
+                    <span class="time">1:34 ·</span>
+                    <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </div>
