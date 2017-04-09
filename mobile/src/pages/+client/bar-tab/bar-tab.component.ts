@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { User } from '../../core/user/user.model';
@@ -25,6 +25,7 @@ export class BarTabComponent implements OnInit{
     public rivalBar: any = {}; //Bar;
     public battle: any; //Battle;
 
+    @Output() scan: EventEmitter<any> = new EventEmitter();
     constructor(private store: Store<any>) {
 
     }

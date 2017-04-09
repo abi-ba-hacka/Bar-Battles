@@ -22,7 +22,7 @@
 
 <ion-content padding [ngSwitch]="tab">
     <profile-tab *ngSwitchCase="'profile'"></profile-tab>
-    <bar-tab *ngSwitchCase="'bar'"></bar-tab>
+    <bar-tab *ngSwitchCase="'bar'" (scan)="onScan($event)"></bar-tab>
 </ion-content>
 
 <!--ion-content padding>

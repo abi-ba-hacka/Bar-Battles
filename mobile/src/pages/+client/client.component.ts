@@ -65,6 +65,10 @@ export class ClientPageComponent {
       })
   }
 
+  onScan(data: any) {
+      this.scan();
+  }
+
   doFbLogout(){
     var nav = this.navCtrl;
     Facebook.logout()

@@ -1,105 +1,126 @@
 <div class="bar-tab">
-    <div class="avatars">
-        <div class="avatar round" [class.double]="battleStarted">
-            <img [src]="barImage">
+    <!-- show when you have bar -->
+    <ng-template [ngIf]="false">
+        <div class="avatars">
+            <div class="avatar round" [class.double]="battleStarted">
+                <img [src]="barImage">
+            </div>
+            <div class="avatar round" [class.double]="battleStarted" *ngIf="battleStarted">
+                <img [src]="opponentBarImage">
+            </div>
         </div>
-        <div class="avatar round" [class.double]="battleStarted" *ngIf="battleStarted">
-            <img [src]="opponentBarImage">
-        </div>
-    </div>
 
-    <h3 class="name">
-        {{barName}}
-        <!-- if bar.type == refugee barName then return first 2 words of barName -->
-        <template [ngIf]="battleStarted">
-            y {{opponentBarName}}
-        </template>
-    </h3>
-    <span *ngIf="!battleStarted" class="bar-location">
-        <ion-icon name='md-pin'></ion-icon>{{barLocation}}
-    </span>
-    <span *ngIf="battleStarted" class="bar-info">
-        Interactuá con el bar amigo de {{opponentBarName}} escaneando
-        los códigos QR de los tickets.
-    </span>
+        <h3 class="name">
+            {{barName}}
+            <!-- if bar.type == refugee barName then return first 2 words of barName -->
+            <template [ngIf]="battleStarted">
+                y {{opponentBarName}}
+            </template>
+        </h3>
+        <span *ngIf="!battleStarted" class="bar-location">
+            <ion-icon name='md-pin'></ion-icon>{{barLocation}}
+        </span>
+        <span *ngIf="battleStarted" class="bar-info">
+            Interactuá con el bar amigo de {{opponentBarName}} escaneando
+            los códigos QR de los tickets.
+        </span>
 
-    <div class="next-battle" *ngIf="!battleStarted">
-        <h2 class="title">PRÓXIMO DUELO</h2>
-        <div class="info">
-            <div class="bar-info">
-                <div class="bars">
-                    <div class="bar">
-                        <img [src]="barImage">
-                        <span>{{barName}}</span>
+        <div class="next-battle" *ngIf="!battleStarted">
+            <h2 class="title">PRÓXIMO DUELO</h2>
+            <div class="info">
+                <div class="bar-info">
+                    <div class="bars">
+                        <div class="bar">
+                            <img [src]="barImage">
+                            <span>{{barName}}</span>
+                        </div>
+                        <div class="bar">
+                            <img [src]="opponentBarImage">
+                            <span>{{opponentBarName}}</span>
+                        </div>
                     </div>
-                    <div class="bar">
-                        <img [src]="opponentBarImage">
-                        <span>{{opponentBarName}}</span>
+                    <div class="date">
+                        <span class="day">Viernes</span>
+                        <span class="day-number">12</span>
+                    </div>
+
+                </div>
+                <div class="time-left">
+                    Faltan: 2 días, 7 horas y 34 minutos
+                </div>
+            </div>
+        </div>
+
+        <div class="promotions" *ngIf="battleStarted">
+            <h2 class="title">PROMOS ACTIVAS</h2>
+            <div class="last-promotions">
+                <div class="promotion">
+                    <h1>2x1</h1>
+                    <span>Session IPA</span>
+                </div>
+                <div class="promotion">
+                    <h1>10%</h1>
+                    <span>OFF · Weisse</span>
+                </div>
+                <div class="promotion">
+                    <h1>20%</h1>
+                    <span>OFF · Growler</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="last-events">
+            <h2 class="title">EVENTOS RECIENTES</h2>
+            <div class="events">
+                <div class="event" *ngFor="let i of [1,2]" [class.gold]="false">
+                    <ion-chip color="grey" *ngIf="true">
+                      <ion-avatar>
+                          <img [src]="barImage">
+                      </ion-avatar>
+                      <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                      <ion-label class="time">11:23</ion-label>
+                    </ion-chip>
+                    <div class="flotante" *ngIf="false">
+                        <span class="time">1:34 ·</span>
+                        <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
                     </div>
                 </div>
-                <div class="date">
-                    <span class="day">Viernes</span>
-                    <span class="day-number">12</span>
-                </div>
-
-            </div>
-            <div class="time-left">
-                Faltan: 2 días, 7 horas y 34 minutos
-            </div>
-        </div>
-    </div>
-
-    <div class="promotions" *ngIf="battleStarted">
-        <h2 class="title">PROMOS ACTIVAS</h2>
-        <div class="last-promotions">
-            <div class="promotion">
-                <h1>2x1</h1>
-                <span>Session IPA</span>
-            </div>
-            <div class="promotion">
-                <h1>10%</h1>
-                <span>OFF · Weisse</span>
-            </div>
-            <div class="promotion">
-                <h1>20%</h1>
-                <span>OFF · Growler</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="last-events">
-        <h2 class="title">EVENTOS RECIENTES</h2>
-        <div class="events">
-            <div class="event" *ngFor="let i of [1,2]" [class.gold]="false">
-                <ion-chip color="grey" *ngIf="true">
-                  <ion-avatar>
-                      <img [src]="barImage">
-                  </ion-avatar>
-                  <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
-                  <ion-label class="time">11:23</ion-label>
-                </ion-chip>
-                <div class="flotante" *ngIf="false">
-                    <span class="time">1:34 ·</span>
-                    <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
-                </div>
-            </div>
-            <!-- class.gold = event = special or something -->
-            <div class="event" [class.gold]="true">
-                <!-- only show when event != special -->
-                <ion-chip color="grey" *ngIf="false">
-                  <ion-avatar>
-                      <img [src]="barImage">
-                  </ion-avatar>
-                  <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
-                  <ion-label class="time">11:23</ion-label>
-                </ion-chip>
-                <!-- show when event = special -->
-                <div class="flotante" *ngIf="true">
-                    <span class="time">1:34 ·</span>
-                    <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                <!-- class.gold = event = special or something -->
+                <div class="event" [class.gold]="true">
+                    <!-- only show when event != special -->
+                    <ion-chip color="grey" *ngIf="false">
+                      <ion-avatar>
+                          <img [src]="barImage">
+                      </ion-avatar>
+                      <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                      <ion-label class="time">11:23</ion-label>
+                    </ion-chip>
+                    <!-- show when event = special -->
+                    <div class="flotante" *ngIf="true">
+                        <span class="time">1:34 ·</span>
+                        <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                    </div>
                 </div>
             </div>
         </div>
+    </ng-template>
+
+    <!-- show when you dont have bar -->
+    <div class="no-bar" *ngIf="true">
+        <div class="content">
+            <img src="assets/img/qrcode-scan.png" alt="">
+            <h2>No escaneaste ningún código</h2>
+            <span>
+                Para poder obtener información acerca del bar en el que estás,
+                tenés que escanear el código QR ubicado en tu ticket de compra
+            </span>
+        </div>
+        <div class="footer">
+            <button ion-button color="grey" (click)="this.scan.emit(null);">
+                ESCANEAR CODIGO QR
+            </button>
+        </div>
+
     </div>
 
 

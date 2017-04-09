@@ -164,4 +164,38 @@ bar-tab .bar-tab {
         }
     }
 
+    .no-bar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            flex: 1;
+
+            img {
+                width: 145px;
+                height: 145px;
+            }
+            h2 {
+                color: $color-lightgrey;
+                font-size: 24px;
+            }
+            span {
+                font-size: 18px;
+                font-weight: 300;
+                color: $color-lightgrey;
+            }
+        }
+        .footer {
+            margin-bottom: -8px;
+            button {
+                width: 100%;
+                height: 45px;
+            }
+        }
+    }
+
 }
