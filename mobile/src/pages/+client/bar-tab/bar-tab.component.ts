@@ -10,7 +10,7 @@ import { Bar } from '../../core/bar/bar.model';
 })
 
 export class BarTabComponent implements OnInit{
-    private battleStarted: boolean = true;
+    private battleStarted: boolean = false;
 
     private barName: string = 'Refugio Callao y Viamonte';
     private barLocation: string = 'Callao y Viamonte, Buenos Aires';
