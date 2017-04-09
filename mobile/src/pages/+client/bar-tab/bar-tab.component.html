@@ -52,6 +52,17 @@
 
         <div class="last-events">
             <h2 class="title">EVENTOS RECIENTES</h2>
+            <div class="events">
+                <div class="event" *ngFor="let i of [1,2,3,4,5]">
+                    <ion-chip color="grey">
+                      <ion-avatar>
+                          <img [src]="barImage">
+                      </ion-avatar>
+                      <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                      <ion-label class="time">11:23</ion-label>
+                    </ion-chip>
+                </div>
+            </div>
         </div>
     </ng-template>
 
