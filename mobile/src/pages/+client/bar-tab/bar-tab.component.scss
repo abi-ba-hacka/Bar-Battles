@@ -72,6 +72,48 @@ bar-tab .bar-tab {
         }
     }
 
+    .promotions {
+        margin-top: 25px;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 145px;
+        .last-promotions {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            .promotion {
+                background-color: rgba(0, 0, 0, 0.26);
+                margin: 0 2px;
+                width: 33.3333%;
+                height: 116px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-left: 2px;
+                &:first-child {
+                    margin-left: 4px;
+                }
+                &:last-child {
+                    margin-right: 4px;
+                }
+
+                h1 {
+                    font-size: 50px;
+                    font-weight: 900;
+                    color: $color-light;
+                }
+                span {
+                    font-weight: 500;
+                    font-size: 15px;
+                    color: $color-lightgrey;
+                }
+            }
+        }
+    }
+
     .last-events {
         width: 100%;
         display: flex;
