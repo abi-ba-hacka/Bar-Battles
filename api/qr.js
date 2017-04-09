@@ -70,11 +70,18 @@ exports.redeem = function(req, res) {
 
   if (battle) {
     battle = db.updateItemInModel('battles', Object.assign({}, battle, {
-      points: battle.points + 1
+      points: battle.points + 1,
+      log: battle.log.concat({
+        user: user.id,
+        action: 'beer_scan',
+        bar: activeBar.id,
+        beer: beer.id
+      })
     }));
 
-    // TODO Update battle log
   }
+
+
 
   res.json({
     bar,

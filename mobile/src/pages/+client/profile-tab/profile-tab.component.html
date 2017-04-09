@@ -1,20 +1,23 @@
 <div class="profile-tab">
 
-    <div class="content">
+    <div class="content" *ngIf="user">
         <div class="avatar round">
             <img src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p160x160/13697031_731916956911195_2107886986825962297_n.jpg?oh=d56d7ea9cd44e20634c497f2150a097b&oe=5989210B">
         </div>
 
-        <h3 class="name">Jhon Doe</h3>
-        <span class="bar-location">
-            <ion-icon name='md-pin'></ion-icon>Patagonia Circuito Chico, Km 24.7
+        <h3 class="name">{{user.name || user.facebook.name}}</h3>
+        <span class="bar-location" *ngIf="bar">
+            <!-- if active bar -->
+            <ion-icon name='md-pin'></ion-icon>{{bar.name}}
+            <!-- else -->
+            <ion-icon name='md-pin'></ion-icon>no active bar
         </span>
 
         <ion-list class="points">
             <ion-item class="point">
                 <span class="desc">Puntos acumulados</span>
                 <h1 class="number">
-                    100
+                    {{user.points}}
                     <button ion-button>
                         <ion-icon name="md-code"></ion-icon>
                     </button>
@@ -23,7 +26,7 @@
             <ion-item class="point">
                 <span class="desc">Cervezas canjeadas</span>
                 <h1 class="number">
-                    100
+                    {{user.prizes.length}}
                     <button ion-button>
                         <ion-icon name="md-beer"></ion-icon>
                     </button>
@@ -32,7 +35,7 @@
             <ion-item class="point">
                 <span class="desc">Cerveza favorita</span>
                 <h1 class="number">
-                    IPA
+                    WEISSE
                     <button ion-button>
                         <ion-icon name="md-star"></ion-icon>
                     </button>

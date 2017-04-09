@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { BeerService } from './services/beer.service';
 import { UserService } from './user/user.service';
+import { BattleService } from './battle/battle.service';
+import { BarService } from './bar/bar.service';
 
 @NgModule({
   imports: [
@@ -11,7 +13,9 @@ import { UserService } from './user/user.service';
 
   providers: [
     BeerService,
-    UserService
+    UserService,
+    BattleService,
+    BarService,
   ]
 })
 

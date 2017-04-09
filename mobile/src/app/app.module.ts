@@ -10,6 +10,8 @@ import { CoreModule } from '../core/core.module';
 
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from '../core/user/user.effects';
+import { BattleEffects } from '../core/battle/battle.effects';
+import { BarEffects } from '../core/bar/bar.effects';
 
 
 import { StoreModule } from '@ngrx/store';
@@ -57,6 +59,8 @@ import { QRGeneratorPageComponent } from '../pages/+admin/qr-generator/qr-genera
     IonicModule.forRoot(MyApp),
     StoreModule.provideStore(reducer),
     EffectsModule.run(UserEffects),
+    EffectsModule.run(BattleEffects),
+    EffectsModule.run(BarEffects),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

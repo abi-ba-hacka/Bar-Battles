@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 import { BarActions } from '../bar/bar.actions';
 import { Bar } from '../bar/bar.model';
 import { PrizeActions } from '../prize/prize.actions';
+import { BattleActions } from '../battle/battle.actions';
 
 @Injectable()
 export class UserEffects {
@@ -18,6 +19,15 @@ export class UserEffects {
   ) {
 
   }
+
+
+  @Effect() getUser$ = this.actions$
+    .ofType(UserActions.Types.GET_USER)
+    .switchMap(action =>
+      this.userService.getUser(action.payload)
+        .map((user: User) => new UserActions.GetUserSuccess(new User(user)))
+        .catch((e) => of(new UserActions.GetUserFail(e)))
+    );
 
   @Effect() getUserByFacebookId$ = this.actions$
     .ofType(UserActions.Types.USER_LOGIN)
@@ -71,6 +81,7 @@ export class UserEffects {
             new UserActions.EditUserSuccess(data.user),
             new UserActions.GetUsersSuccess(data.receiver),
             new PrizeActions.UpdatePrizeSuccess(data.prize),
+            new BattleActions.GetBattleSuccess(data.battle),
             // TODO: updateBattle (me devuleve data.battle tambien)
           ])
         })

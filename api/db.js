@@ -4,6 +4,7 @@ exports.data = {
   users: [{
     id: '1',
     name: 'il pioni',
+    image: '',
     points: 0,
     activeBar: '',
     prizes: ['1'],
@@ -16,6 +17,7 @@ exports.data = {
   }, {
     id: '2',
     name: 'il rami',
+    image: '',
     points: 0,
     activeBar: '',
     prizes: [],
@@ -28,6 +30,7 @@ exports.data = {
   }, {
     id: '3',
     name: 'il panchi',
+    image: '',
     points: 0,
     activeBar: '',
     prizes: [],
@@ -40,6 +43,7 @@ exports.data = {
   }, {
     id: '4',
     name: 'il lucho',
+    image: '',
     points: 0,
     activeBar: '2',
     prizes: [],
@@ -55,6 +59,7 @@ exports.data = {
   bars: [{
     id: '1',
     name: 'patagonia bsas',
+    type: 'refugio',
     points: 0,
     image: '',
     activeBattle: '1',
@@ -65,6 +70,7 @@ exports.data = {
   }, {
     id: '2',
     name: 'patagonia bariloche',
+    type: '',
     points: 4,
     image: '',
     activeBattle: '1',

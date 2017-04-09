@@ -7,6 +7,7 @@ var app = express()
 var db = require('./db')
 var qr = require('./qr')
 var prize = require('./prize')
+var bar = require('./bar')
 
 app.use(cors())
 // parse application/x-www-form-urlencoded
@@ -34,6 +35,9 @@ app.get('/users/facebook/:id', function (req, res) {
 // BAR
 app.get('/bar/users/', function (req, res) {
   db.getBarUsers(req, res);
+})
+app.post('/bar/promotion', function (req, res) {
+  bar.addPromotion(req, res);
 })
 
 // PRIZE

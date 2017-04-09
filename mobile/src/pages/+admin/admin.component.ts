@@ -82,8 +82,4 @@ export class AdminPageComponent {
     actionSheet.present();
   }
 
-  testNgrx() {
-    this.store.dispatch(new UserActions.GetUserSuccess(123))
-  }
-
 }
