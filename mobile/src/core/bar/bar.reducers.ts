@@ -41,6 +41,21 @@ export function bar(state = initialBarState, action: BarActions.Actions): BarSta
         loading: false
       });
 
+    case BarActions.Types.GET_BARS:
+      return Object.assign({}, state, {loading: true, error: null});
+
+    case BarActions.Types.GET_BARS_SUCCESS:
+      return Object.assign({}, state, {
+        bars: updateAndfilterUniqueItems(state.bars.concat(action.payload)),
+        loading: false
+      });
+
+    case BarActions.Types.GET_BARS_FAIL:
+      return Object.assign({}, state, {
+        error: action.payload,
+        loading: false
+      });
+
 
 
     default:

@@ -9,6 +9,9 @@ export namespace BarActions {
     GET_BAR_SUCCESS: type('[Bar] Get Bar Success'),
     GET_BAR_FAIL: type('[Bar] Get Bar Fail'),
     SET_CURRENT_BAR_ID: type('[Bar] Set Current Bar Id'),
+    GET_BARS: type('[Bar] Get bars'),
+    GET_BARS_SUCCESS: type('[Bar] Get bars Success'),
+    GET_BARS_FAIL: type('[Bar] Get bars Fail'),
 
   }
 
@@ -36,6 +39,24 @@ export namespace BarActions {
     constructor(public payload: string) { }
   }
 
+  export class GetBars implements Action {
+    type = Types.GET_BARS;
+
+    constructor(public payload: string[]) { }
+  }
+
+  export class GetBarsSuccess implements Action {
+    type = Types.GET_BARS_SUCCESS;
+
+    constructor(public payload: Bar[]) { }
+  }
+
+  export class GetBarsFail implements Action {
+    type = Types.GET_BARS_FAIL;
+
+    constructor(public payload: any) { }
+  }
+
 
 
   export type Actions
@@ -43,4 +64,7 @@ export namespace BarActions {
     | GetBarSuccess
     | GetBarFail
     | SetCurrentBarId
+    | GetBars
+    | GetBarsSuccess
+    | GetBarsFail
 }
