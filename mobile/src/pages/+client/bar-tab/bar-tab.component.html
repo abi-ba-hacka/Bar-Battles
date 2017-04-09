@@ -53,14 +53,34 @@
         <div class="last-events">
             <h2 class="title">EVENTOS RECIENTES</h2>
             <div class="events">
-                <div class="event" *ngFor="let i of [1,2,3,4,5]">
-                    <ion-chip color="grey">
+                <div class="event" *ngFor="let i of [1,2]" [class.gold]="false">
+                    <ion-chip color="grey" *ngIf="true">
                       <ion-avatar>
                           <img [src]="barImage">
                       </ion-avatar>
                       <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
                       <ion-label class="time">11:23</ion-label>
                     </ion-chip>
+                    <div class="flotante" *ngIf="false">
+                        <span class="time">1:34 ·</span>
+                        <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                    </div>
+                </div>
+                <!-- class.gold = event = special or something -->
+                <div class="event" [class.gold]="true">
+                    <!-- only show when event != special -->
+                    <ion-chip color="grey" *ngIf="false">
+                      <ion-avatar>
+                          <img [src]="barImage">
+                      </ion-avatar>
+                      <ion-label class="desc">Pedro dia canjeo 100 puntos!</ion-label>
+                      <ion-label class="time">11:23</ion-label>
+                    </ion-chip>
+                    <!-- show when event = special -->
+                    <div class="flotante" *ngIf="true">
+                        <span class="time">1:34 ·</span>
+                        <span class="desc">Refugio Callao inició 2x1 en Session IPA!</span>
+                    </div>
                 </div>
             </div>
         </div>

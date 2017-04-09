@@ -104,6 +104,20 @@ bar-tab .bar-tab {
                         color: $color-lightgrey;
                     }
                 }
+                &.gold {
+                    height: 32px;
+                    .flotante {
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        color: #FAFAFA;
+                        font-size: 14px;
+                        background-color: $color-primary;
+                        height: 32px;
+                        line-height: 32px;
+                        text-align: center;
+                    }
+                }
             }
         }
     }
