@@ -36,7 +36,7 @@ profile-tab {
                 .number, .desc {
                     margin: 0;
                 }
-                .number {
+                .number, .beer-name {
                     display: flex;
                     align-items: center;
                     font-size: 50px;
@@ -51,6 +51,9 @@ profile-tab {
                     ion-icon {
                         font-size: 15px;
                     }
+                }
+                .beer-name {
+                    font-size: 14px;
                 }
                 .desc {
                     font-size: 20px;
